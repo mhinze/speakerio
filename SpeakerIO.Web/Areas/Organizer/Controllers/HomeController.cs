@@ -1,12 +1,13 @@
 ﻿using System.Web.Mvc;
+using SpeakerIO.Web.Areas.Organizer.Models;
 
-namespace SpeakerIO.Web.Controllers
+namespace SpeakerIO.Web.Areas.Organizer.Controllers
 {
     public class HomeController : Controller
     {
          public ViewResult Index()
          {
-             return View();
+             return View(new HomeModel());
          }
     }
 }
