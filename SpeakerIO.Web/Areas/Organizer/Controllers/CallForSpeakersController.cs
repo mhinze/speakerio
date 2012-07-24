@@ -14,7 +14,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         }
 
         [HttpPost, ActionName("Create")]
-        public ActionResult PostCreation(CallForSpeakersInput input)
+        public ActionResult ProcessCreation(CallForSpeakersInput input)
         {
             if (ModelState.IsValid)
             {
