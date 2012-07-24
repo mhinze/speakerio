@@ -7,7 +7,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
     {
          public ViewResult Index()
          {
-             return View(new HomeModel());
+             return View(new HomeViewModel());
          }
     }
 }

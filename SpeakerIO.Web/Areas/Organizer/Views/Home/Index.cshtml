@@ -1,6 +1,9 @@
-﻿@model SpeakerIO.Web.Areas.Organizer.Models.HomeModel
+﻿@model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
 @{
     ViewBag.Title = "Organizer Home";
 }
 
 <h2>Organizer Home</h2>
+
+<h3>You have @Model.CallForSpeakerCount calls for speakers</h3>
+<h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeaker")</h3>
