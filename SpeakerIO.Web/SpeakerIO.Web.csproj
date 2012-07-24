@@ -108,14 +108,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Organizer\Controllers\CallForSpeakerController.cs" />
+    <Compile Include="Areas\Organizer\Controllers\CallForSpeakersController.cs" />
     <Compile Include="Areas\Organizer\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Organizer\Models\CallForSpeakerInput.cs" />
+    <Compile Include="Areas\Organizer\Models\CallForSpeakersInput.cs" />
     <Compile Include="Areas\Organizer\Models\HomeViewModel.cs" />
     <Compile Include="Areas\Organizer\OrganizerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Data\DataContext.cs" />
-    <Compile Include="Data\Model\CallForSpeaker.cs" />
+    <Compile Include="Data\Model\CallForSpeakers.cs" />
     <Compile Include="Data\Model\DataEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,7 +160,7 @@
     <Content Include="Areas\Organizer\Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Organizer\Views\CallForSpeaker\Create.cshtml" />
+    <Content Include="Areas\Organizer\Views\CallForSpeakers\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Organizer\Views\_ViewStart.cshtml" />
