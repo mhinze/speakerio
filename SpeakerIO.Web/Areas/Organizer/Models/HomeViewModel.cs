@@ -2,6 +2,6 @@
 {
     public class HomeViewModel
     {
-        public int CallForSpeakerCount { get; set; }
+        public int CallForSpeakersCount { get; set; }
     }
 }
