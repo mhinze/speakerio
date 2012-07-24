@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using SpeakerIO.Web.Areas.Organizer.Models;
+using SpeakerIO.Web.Data;
+using SpeakerIO.Web.Data.Model;
 
 namespace SpeakerIO.Web.Areas.Organizer.Controllers
 {
@@ -16,6 +18,11 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var db = new DataContext())
+                {
+                    db.CallsForSpeakers.Add(new CallForSpeakers(input));
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index", "Home");
             }
             return View();

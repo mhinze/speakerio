@@ -120,6 +120,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207242219225_InitialCallForSpeakers.cs" />
+    <Compile Include="Migrations\201207242219225_InitialCallForSpeakers.Designer.cs">
+      <DependentUpon>201207242219225_InitialCallForSpeakers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
