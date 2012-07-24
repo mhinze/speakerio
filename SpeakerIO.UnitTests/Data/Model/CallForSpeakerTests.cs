@@ -9,13 +9,15 @@ namespace SpeakerIO.UnitTests.Data.Model
     [TestFixture]
     public class CallForSpeakerTests
     {
-
         [Test]
         public void When_initializing_data_entity_from_user_input()
         {
             var input = new CallForSpeakersInput
             {
-                Description = "description", EventName = "event name", LastDayToSubmit = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), LogoUrl = "logo url"
+                Description = "description",
+                EventName = "event name",
+                LastDayToSubmit = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LogoUrl = "logo url"
             };
 
             var model = new CallForSpeakers(input);
