@@ -8,11 +8,11 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         [HttpGet]
         public ViewResult Create()
         {
-            return View(new CallForSpeakerViewModel());
+            return View(new CallForSpeakerInput());
         }
 
         [HttpPost, ActionName("Create")]
-        public ActionResult PostCreation(CallForSpeakerViewModel input)
+        public ActionResult PostCreation(CallForSpeakerInput input)
         {
             if (ModelState.IsValid)
             {

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SpeakerIO.Web.Areas.Organizer.Models
 {
-    public class CallForSpeakerViewModel
+    public class CallForSpeakerInput
     {
         [Required]
         [DisplayName("Event Name")]

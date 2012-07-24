@@ -110,11 +110,13 @@
   <ItemGroup>
     <Compile Include="Areas\Organizer\Controllers\CallForSpeakerController.cs" />
     <Compile Include="Areas\Organizer\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Organizer\Models\CallForSpeakerViewModel.cs" />
+    <Compile Include="Areas\Organizer\Models\CallForSpeakerInput.cs" />
     <Compile Include="Areas\Organizer\Models\HomeViewModel.cs" />
     <Compile Include="Areas\Organizer\OrganizerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\Model\CallForSpeaker.cs" />
+    <Compile Include="Data\Model\DataEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
