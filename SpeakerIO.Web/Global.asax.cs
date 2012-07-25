@@ -18,6 +18,9 @@ namespace SpeakerIO.Web
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
+
+
         }
     }
 }
