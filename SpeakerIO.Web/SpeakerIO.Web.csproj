@@ -44,6 +44,9 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.103.2\lib\net4\RestSharp.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -111,8 +114,20 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\ApplicationSettings.cs" />
+    <Compile Include="Application\Container\SpeakerIORegistry.cs" />
+    <Compile Include="Application\Container\StructureMapDependencyResolver.cs" />
+    <Compile Include="Application\IApplicationSettings.cs" />
+    <Compile Include="Application\IUrlResolver.cs" />
+    <Compile Include="Application\Login\ILoginService.cs" />
+    <Compile Include="Application\ResharperSupport\JetbrainsAnnotations.cs" />
+    <Compile Include="Application\UrlResolver.cs" />
+    <Compile Include="App_Start\StructureMap.cs" />
     <Compile Include="Areas\Organizer\Controllers\CallForSpeakersController.cs" />
     <Compile Include="Areas\Organizer\Controllers\HomeController.cs" />
     <Compile Include="Areas\Organizer\Models\CallForSpeakersInput.cs" />
