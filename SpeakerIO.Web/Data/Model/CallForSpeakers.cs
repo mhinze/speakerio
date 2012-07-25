@@ -4,7 +4,7 @@ using SpeakerIO.Web.Areas.Organizer.Models;
 
 namespace SpeakerIO.Web.Data.Model
 {
-    public class CallForSpeakers : DataEntity
+    public class CallForSpeakers : DataEntity<long>
     {
         public CallForSpeakers() {}
 
