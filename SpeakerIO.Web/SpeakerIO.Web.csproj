@@ -15,7 +15,7 @@
     <AssemblyName>SpeakerIO.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -41,6 +41,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.103.2\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -116,15 +119,22 @@
     <Compile Include="Areas\Organizer\Models\HomeViewModel.cs" />
     <Compile Include="Areas\Organizer\OrganizerAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthInfo.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\Model\CallForSpeakers.cs" />
     <Compile Include="Data\Model\DataEntity.cs" />
+    <Compile Include="Data\Model\User.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201207242219225_InitialCallForSpeakers.cs" />
     <Compile Include="Migrations\201207242219225_InitialCallForSpeakers.Designer.cs">
       <DependentUpon>201207242219225_InitialCallForSpeakers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207251453577_InitialUser.cs" />
+    <Compile Include="Migrations\201207251453577_InitialUser.Designer.cs">
+      <DependentUpon>201207251453577_InitialUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -173,8 +183,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="appSettings.config">
-	  <DependentUpon>Web.config</DependentUpon>
-	</Content>
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -194,8 +204,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>10414</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:8101/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
