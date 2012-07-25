@@ -1,0 +1,8 @@
+﻿@using System.Configuration
+@model SpeakerIO.Web.Models.LoginModel
+
+<a href="@Url.Action("Index", "Home", new {area = "Organizer"})">
+    Pretend to log in
+</a>
+
+@ConfigurationManager.AppSettings["janrainName"]

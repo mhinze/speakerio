@@ -1,0 +1,22 @@
+﻿@model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
+@helper GetCountText()
+{// easiest way to localize...
+    if (Model.CallForSpeakersCount == 0)
+    {
+        @:You have no calls for speakers
+    }
+    else if (Model.CallForSpeakersCount == 1)
+    {
+        @:You have 1 call for speakers
+    }
+    else
+    {
+        @:You have @Model.CallForSpeakersCount calls for speakers
+    }
+}
+@{
+    ViewBag.Title = "Organizer Home";
+}
+<h2>Organizer Home</h2>
+<h3>@GetCountText() </h3>
+<h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers")</h3>
