@@ -97,3 +97,6 @@ UpgradeLog*.XML
 
 #nuget
 packages/
+
+#local config
+appSettings.config
