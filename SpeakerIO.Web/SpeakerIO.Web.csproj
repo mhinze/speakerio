@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201207251453577_InitialUser.Designer.cs">
       <DependentUpon>201207251453577_InitialUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.cs" />
+    <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.Designer.cs">
+      <DependentUpon>201207260509321_SurrogateKeyOnUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

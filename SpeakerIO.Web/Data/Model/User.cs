@@ -1,4 +1,6 @@
-﻿namespace SpeakerIO.Web.Data.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SpeakerIO.Web.Data.Model
 {
     public class User : DataEntity
     {
@@ -8,8 +10,10 @@
         {
             Identifier = identifier;
         }
-        
+
+        [Required]
         public string Identifier { get; protected set; }
+
         public string Name { get; set; }
         public string Email { get; set; }
         public string ImageUrl { get; set; }
