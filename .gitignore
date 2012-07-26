@@ -100,3 +100,6 @@ packages/
 
 #local config
 appSettings.config
+
+# msbuild log
+msbuild.log
