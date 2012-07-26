@@ -26,7 +26,7 @@ namespace SpeakerIO.UnitTests.Application.Login
             url.Stub(x => x.AbsoluteAction(Arg.Is("ProcessLogin"), Arg.Is("Account"), Arg<object>.Matches(Property.Value("returnUrl", "http://www.google.com"))))
                 .Return(absoluteUrl);
 
-            login = new LoginService(settings, url);
+            login = new LoginService(settings, url, null);
             loginModel = login.Build("http://www.google.com");
         }
 

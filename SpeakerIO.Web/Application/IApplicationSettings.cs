@@ -4,5 +4,7 @@
     {
         string JanrainApiKey();
         string JanrainAppName();
+        bool ShouldProxyOutboundHttpRequests();
+        string OutboundHttpProxy();
     }
 }
