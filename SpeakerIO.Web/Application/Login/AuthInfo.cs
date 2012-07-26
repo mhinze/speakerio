@@ -1,6 +1,6 @@
 using System;
 
-namespace SpeakerIO.Web.Controllers
+namespace SpeakerIO.Web.Application.Login
 {
     public class AuthInfo
     {
@@ -9,7 +9,7 @@ namespace SpeakerIO.Web.Controllers
 
         public bool IsOk()
         {
-            return string.Equals(stat, "ok", StringComparison.InvariantCultureIgnoreCase);
+            return string.Equals(stat, "ok", StringComparison.InvariantCultureIgnoreCase) && profile != null;
         }
 
         public class Profile

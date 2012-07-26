@@ -4,11 +4,17 @@
   <add key="webpages:Enabled" value="false" />
   <add key="PreserveLoginUrl" value="true" />
   <add key="ClientValidationEnabled" value="true" />
-  <add key="UnobtrusiveJavaScriptEnabled" value="true" />  
+  <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  
   <!-- ************************  
   http://janrain.com/  
   Input Janrain information here 
   ************************* -->
   <add key="janrainApiKey" value="" />
   <add key="janrainName" value="" /> 
+  
+  <!-- ************************  
+  To proxy outbound http requests, enter the proxy URL here
+  ************************* -->
+  <add key="outboundHttpProxy" value="" />
 </appSettings>

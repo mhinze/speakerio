@@ -136,7 +136,9 @@
     <Compile Include="Application\Container\StructureMapDependencyResolver.cs" />
     <Compile Include="Application\IApplicationSettings.cs" />
     <Compile Include="Application\IUrlResolver.cs" />
+    <Compile Include="Application\Login\IJanrainEngageClient.cs" />
     <Compile Include="Application\Login\ILoginService.cs" />
+    <Compile Include="Application\Login\LoginService.cs" />
     <Compile Include="Application\ResharperSupport\JetbrainsAnnotations.cs" />
     <Compile Include="Application\UrlResolver.cs" />
     <Compile Include="App_Start\StructureMap.cs" />
@@ -147,12 +149,11 @@
     <Compile Include="Areas\Organizer\OrganizerAreaRegistration.cs" />
     <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AuthInfo.cs" />
+    <Compile Include="Application\Login\AuthInfo.cs" />
     <Compile Include="Data\DataContext.cs" />
     <Compile Include="Data\Model\CallForSpeakers.cs" />
     <Compile Include="Data\Model\DataEntity.cs" />
     <Compile Include="Data\Model\User.cs" />
-    <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +164,10 @@
     <Compile Include="Migrations\201207251453577_InitialUser.cs" />
     <Compile Include="Migrations\201207251453577_InitialUser.Designer.cs">
       <DependentUpon>201207251453577_InitialUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.cs" />
+    <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.Designer.cs">
+      <DependentUpon>201207260509321_SurrogateKeyOnUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -206,6 +211,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Organizer\Views\Shared\" />
+    <Folder Include="Data\Services\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

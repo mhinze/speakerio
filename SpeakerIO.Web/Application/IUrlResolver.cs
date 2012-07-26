@@ -7,5 +7,7 @@ namespace SpeakerIO.Web.Application
         string AbsoluteAction([AspMvcAction] string action,
                               [AspMvcController] string controller,
                               object routeValues);
+
+        bool IsLocalUrl(string url);
     }
 }

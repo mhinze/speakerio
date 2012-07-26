@@ -26,5 +26,10 @@ namespace SpeakerIO.Web.Application
             }
             return null;
         }
+
+        public bool IsLocalUrl(string url)
+        {
+            return _helper.IsLocalUrl(url);
+        }
     }
 }

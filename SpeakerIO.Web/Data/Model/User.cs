@@ -1,13 +1,18 @@
-﻿namespace SpeakerIO.Web.Data.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SpeakerIO.Web.Data.Model
 {
-    public class User : DataEntity<string>
+    public class User : DataEntity
     {
         protected User() {}
 
-        public User(string id)
+        public User(string identifier)
         {
-            Id = id;
+            Identifier = identifier;
         }
+
+        [Required]
+        public string Identifier { get; protected set; }
 
         public string Name { get; set; }
         public string Email { get; set; }

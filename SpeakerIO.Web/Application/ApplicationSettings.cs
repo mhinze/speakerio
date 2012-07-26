@@ -13,5 +13,15 @@ namespace SpeakerIO.Web.Application
         {
             return ConfigurationManager.AppSettings["janrainName"];
         }
+
+        public bool ShouldProxyOutboundHttpRequests()
+        {
+            return string.IsNullOrWhiteSpace(OutboundHttpProxy());
+        }
+
+        public string OutboundHttpProxy()
+        {
+            return ConfigurationManager.AppSettings["outboundHttpProxy"];
+        }
     }
 }
