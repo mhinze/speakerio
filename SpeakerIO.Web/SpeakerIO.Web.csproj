@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.Designer.cs">
       <DependentUpon>201207260509321_SurrogateKeyOnUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207261428133_AddUserToCallForSpeakers.cs" />
+    <Compile Include="Migrations\201207261428133_AddUserToCallForSpeakers.Designer.cs">
+      <DependentUpon>201207261428133_AddUserToCallForSpeakers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />

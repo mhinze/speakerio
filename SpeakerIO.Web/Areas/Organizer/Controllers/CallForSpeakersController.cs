@@ -5,6 +5,7 @@ using SpeakerIO.Web.Data.Model;
 
 namespace SpeakerIO.Web.Areas.Organizer.Controllers
 {
+    [Authorize]
     public class CallForSpeakersController : Controller
     {
         [HttpGet]
@@ -14,13 +15,13 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         }
 
         [HttpPost, ActionName("Create")]
-        public ActionResult ProcessCreation(CallForSpeakersInput input)
+        public ActionResult ProcessCreation(CallForSpeakersInput input, User user)
         {
             if (ModelState.IsValid)
             {
                 using (var db = new DataContext())
                 {
-                    db.CallsForSpeakers.Add(new CallForSpeakers(input));
+                    db.CallsForSpeakers.Add(new CallForSpeakers(input, user));
                     db.SaveChanges();
                 }
                 return RedirectToAction("Index", "Home");
