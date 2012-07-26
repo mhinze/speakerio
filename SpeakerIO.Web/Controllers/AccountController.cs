@@ -1,27 +1,28 @@
-﻿using System;
-using System.Configuration;
-using System.Net;
+﻿using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 using RestSharp;
+using SpeakerIO.Web.Application;
+using SpeakerIO.Web.Application.Login;
 using SpeakerIO.Web.Data;
 using SpeakerIO.Web.Data.Model;
-using SpeakerIO.Web.Extensions;
 using SpeakerIO.Web.Models;
 
 namespace SpeakerIO.Web.Controllers
 {
     public class AccountController : Controller
     {
+        readonly ILoginService _loginService;
+
+        public AccountController(ILoginService loginService)
+        {
+            _loginService = loginService;
+        }
+
         [HttpGet]
         public ActionResult Login(string returnUrl)
         {
-            var model = new LoginModel
-            {
-                ReturnUrl = returnUrl,
-                JanrainName = ConfigurationManager.AppSettings["janrainName"],
-                ProcessAuthUrl = Url.AbsoluteAction("ProcessLogin", "Account", returnUrl)
-            };
+            var model = _loginService.Build(returnUrl);
 
             return View(model);
         }
@@ -41,9 +42,9 @@ namespace SpeakerIO.Web.Controllers
                 request.AddParameter("apiKey", ConfigurationManager.AppSettings["janrainApiKey"]);
 
                 // ಠ_ಠ
-                // client.Proxy = new WebProxy("127.0.0.1", 5865);
-                // client.Proxy = new WebProxy("10.210.54.120", 5865);
-//                client.Proxy = new WebProxy(new Uri("http://proxy:80"), false, null, CredentialCache.DefaultNetworkCredentials);
+                // client.Proxy = new System.Net.WebProxy("127.0.0.1", 5865);
+                // client.Proxy = new System.Net.WebProxy("10.210.54.120", 5865);
+                client.Proxy = new System.Net.WebProxy(new System.Uri("http://proxy:80"), false, null, System.Net.CredentialCache.DefaultNetworkCredentials);
 
                 IRestResponse<AuthInfo> response = client.Execute<AuthInfo>(request);
 
