@@ -4,14 +4,14 @@ using System.Data.Objects;
 
 namespace SpeakerIO.Web.Data.Model
 {
-    public abstract class DataEntity<TKey>
+    public abstract class DataEntity
     {
         [Key]
-        public TKey Id { get; set; }
+        public long Id { get; set; }
 
         public override bool Equals(object obj)
         {
-            var other = obj as DataEntity<TKey>;
+            var other = obj as DataEntity;
 
             if (other == null)
                 return false;
@@ -38,25 +38,25 @@ namespace SpeakerIO.Web.Data.Model
             }
         }
 
-        public static bool operator ==(DataEntity<TKey> left, DataEntity<TKey> right)
+        public static bool operator ==(DataEntity left, DataEntity right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(DataEntity<TKey> left, DataEntity<TKey> right)
+        public static bool operator !=(DataEntity left, DataEntity right)
         {
             return !Equals(left, right);
         }
 
-        bool PersistentAndSame(DataEntity<TKey> compareTo)
+        bool PersistentAndSame(DataEntity compareTo)
         {
-            return (!Id.Equals(default(TKey))) &&
-                   (!compareTo.Id.Equals(default(TKey))) && Id.Equals(compareTo.Id);
+            return (!Id.Equals(default(long))) &&
+                   (!compareTo.Id.Equals(default(long))) && Id.Equals(compareTo.Id);
         }
 
         bool IsTransient()
         {
-            return Equals(Id, default(TKey));
+            return Equals(Id, default(long));
         }
 
         public Type GetUnproxiedType()

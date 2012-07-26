@@ -1,14 +1,15 @@
 ﻿namespace SpeakerIO.Web.Data.Model
 {
-    public class User : DataEntity<string>
+    public class User : DataEntity
     {
         protected User() {}
 
-        public User(string id)
+        public User(string identifier)
         {
-            Id = id;
+            Identifier = identifier;
         }
-
+        
+        public string Identifier { get; protected set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string ImageUrl { get; set; }
