@@ -1,0 +1,15 @@
+﻿@model SpeakerIO.Web.Models.UserDetailsInput
+
+@{
+    ViewBag.Title = "Account Details";
+}
+
+<h2>Account Details</h2>
+
+<p>Please confirm your contact information.  We won't spam you.</p>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <button type="submit">Submit</button>
+}

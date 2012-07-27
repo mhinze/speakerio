@@ -126,6 +126,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="Migrations\201207270431146_TwitterOnUser.cs" />
+    <Compile Include="Migrations\201207270431146_TwitterOnUser.Designer.cs">
+      <DependentUpon>201207270431146_TwitterOnUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
@@ -259,6 +264,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
+    <Content Include="Views\Account\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
