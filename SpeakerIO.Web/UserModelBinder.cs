@@ -11,7 +11,7 @@ namespace SpeakerIO.Web
             string userIdentifier = controllerContext.HttpContext.User.Identity.Name;
             using (var db = new DataContext())
             {
-                return db.Users.Single(x => x.Identifier == userIdentifier);
+                return db.Users.SingleOrDefault(x => x.Identifier == userIdentifier);
             }
         }
     }

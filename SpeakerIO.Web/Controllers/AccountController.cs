@@ -1,9 +1,14 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.Services.Protocols;
 using SpeakerIO.Web.Application.Login;
+using SpeakerIO.Web.Data;
+using SpeakerIO.Web.Data.Model;
+using SpeakerIO.Web.Models;
 
 namespace SpeakerIO.Web.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         readonly ILoginService _loginService;
@@ -13,7 +18,7 @@ namespace SpeakerIO.Web.Controllers
             _loginService = loginService;
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous,]
         public ActionResult Login(string returnUrl)
         {
             var model = _loginService.Build(returnUrl);
@@ -21,7 +26,7 @@ namespace SpeakerIO.Web.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public ActionResult ProcessLogin(string token, string returnUrl)
         {
             if (string.IsNullOrWhiteSpace(token))
@@ -29,24 +34,56 @@ namespace SpeakerIO.Web.Controllers
                 return Login(returnUrl);
             }
 
-            var user = _loginService.ProcessLogin(token);
-            if (user == null)
+            var status = _loginService.ProcessLogin(token);
+            if (!status.SuccessfullyLoggedIn)
             {
                 return RedirectToAction("Login");
             }
 
-            FormsAuthentication.SetAuthCookie(user.Identifier, true);
+            FormsAuthentication.SetAuthCookie(status.UserIdentifier, true);
 
-            string url = Url.IsLocalUrl(returnUrl) ? returnUrl : "~/organizer/home";
+            var url = GetRedirectUrl(returnUrl, status);
 
             return Redirect(url);
         }
 
-        [Authorize]
+        string GetRedirectUrl(string returnUrl, LoginStatus status)
+        {
+            if (status.FirstLogin)
+            {
+                return Url.Action("Details");
+            }
+            return Url.IsLocalUrl(returnUrl) ? returnUrl : "~/organizer/home";
+        }
+
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ViewResult Details(User user)
+        {
+            return View(new UserDetailsInput(user));
+        }
+
+        [HttpPost, ActionName("Details")]
+        public ActionResult ProcessDetails(UserDetailsInput input, User user)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new DataContext(user))
+                {
+                    user.Name = input.Name;
+                    user.Email = input.EmailAddress;
+                    user.Twitter = input.Twitter;
+
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "Home", new { area = "organizer" });
+            }
+            return View("Details");
         }
     }
 }

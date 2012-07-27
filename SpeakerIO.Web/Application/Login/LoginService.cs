@@ -29,18 +29,23 @@ namespace SpeakerIO.Web.Application.Login
             };
         }
 
-        public User ProcessLogin(string token)
+        public LoginStatus ProcessLogin(string token)
         {
             var authInfo = _engageClient.GetAuthInfo(token);
 
-            if (authInfo == null || !authInfo.IsOk()) return null;
+            if (authInfo == null || !authInfo.IsOk())
+                return LoginStatus.Failed();
+
+            var identifier = authInfo.profile.identifier;
 
             using (var db = new DataContext())
             {
-                User foundUser = db.Users.SingleOrDefault(x => authInfo.profile.identifier == x.Identifier);
-                if (foundUser != null) return foundUser;
-
-                var newUser = new User(authInfo.profile.identifier)
+                User foundUser = db.Users.SingleOrDefault(x => identifier == x.Identifier);
+                if (foundUser != null)
+                {
+                    return LoginStatus.ReturnVisit(identifier);
+                }
+                var newUser = new User(identifier)
                 {
                     Email = authInfo.profile.verifiedEmail ?? authInfo.profile.email,
                     Name = authInfo.profile.displayName,
@@ -48,9 +53,9 @@ namespace SpeakerIO.Web.Application.Login
                 };
                 db.Users.Add(newUser);
                 db.SaveChanges();
-            }
 
-            return null;
+                return LoginStatus.FirstVisit(identifier);
+            }
         }
     }
 }
