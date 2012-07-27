@@ -37,7 +37,7 @@ namespace SpeakerIO.Web.Application.Login
 
             using (var db = new DataContext())
             {
-                User foundUser = db.Users.Single(x => authInfo.profile.identifier == x.Identifier);
+                User foundUser = db.Users.SingleOrDefault(x => authInfo.profile.identifier == x.Identifier);
                 if (foundUser != null) return foundUser;
 
                 var newUser = new User(authInfo.profile.identifier)

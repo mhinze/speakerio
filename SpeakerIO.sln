@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0134B8
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionScripts", "SolutionScripts", "{943F76A8-08C0-4F5E-BAC1-BC88458BE778}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionScripts\appSettings.config.template = SolutionScripts\appSettings.config.template
+		SolutionScripts\Create-AppSettings.ps1 = SolutionScripts\Create-AppSettings.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -35,7 +35,7 @@ namespace SpeakerIO.Web.Controllers
                 return RedirectToAction("Login");
             }
 
-            FormsAuthentication.SetAuthCookie(user.Identifier, false);
+            FormsAuthentication.SetAuthCookie(user.Identifier, true);
 
             string url = Url.IsLocalUrl(returnUrl) ? returnUrl : "~/organizer/home";
 

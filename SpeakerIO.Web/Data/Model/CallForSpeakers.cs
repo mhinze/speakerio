@@ -16,6 +16,13 @@ namespace SpeakerIO.Web.Data.Model
             SetLastDayToSubmit(input.LastDayToSubmit);
         }
 
+        public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
+        {
+            User = user;
+        }
+
+        public User User { get; set; }
+
         public DateTime? LastDayToSubmitUtc { get; protected set; }
 
         [Required]
@@ -25,7 +32,7 @@ namespace SpeakerIO.Web.Data.Model
         public string EventName { get; set; }
 
         public string LogoUrl { get; set; }
-        
+
         public void SetLastDayToSubmit(DateTime? date)
         {
             LastDayToSubmitUtc = date.HasValue ? (DateTime?) date.Value.ToUniversalTime().Date : null;

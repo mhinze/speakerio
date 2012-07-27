@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
     </Reference>
@@ -168,6 +169,10 @@
     <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.cs" />
     <Compile Include="Migrations\201207260509321_SurrogateKeyOnUser.Designer.cs">
       <DependentUpon>201207260509321_SurrogateKeyOnUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207261428133_AddUserToCallForSpeakers.cs" />
+    <Compile Include="Migrations\201207261428133_AddUserToCallForSpeakers.Designer.cs">
+      <DependentUpon>201207261428133_AddUserToCallForSpeakers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -273,8 +278,8 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10414</DevelopmentServerPort>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8101</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:8101/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -16,7 +16,8 @@ namespace SpeakerIO.Web.Application
 
         public bool ShouldProxyOutboundHttpRequests()
         {
-            return string.IsNullOrWhiteSpace(OutboundHttpProxy());
+            string outboundHttpProxy = OutboundHttpProxy();
+            return !string.IsNullOrWhiteSpace(outboundHttpProxy);
         }
 
         public string OutboundHttpProxy()
