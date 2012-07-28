@@ -14,9 +14,9 @@ namespace SpeakerIO.Web.Data.Model
             EventName = input.EventName;
             Description = input.Description;
 
-            FirstDayOfEventUtc = input.FirstDayOfEvent.GetValueOrDefault(new DateTime(1900, 1, 1));
-            LastDayOfEventUtc = input.LastDayOfEvent.GetValueOrDefault(new DateTime(1900, 1, 1));
-            LastDayToSubmitUtc = input.LastDayToSubmit.GetValueOrDefault(new DateTime(1900, 1, 1));
+            FirstDayOfEventUtc = input.FirstDayOfEvent;
+            LastDayOfEventUtc = input.LastDayOfEvent;
+            LastDayToSubmitUtc = input.LastDayToSubmit;
         }
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
