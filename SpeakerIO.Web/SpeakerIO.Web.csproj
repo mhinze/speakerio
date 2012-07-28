@@ -125,6 +125,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.cs" />
