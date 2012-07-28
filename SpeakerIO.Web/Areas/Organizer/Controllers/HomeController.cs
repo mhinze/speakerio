@@ -11,10 +11,12 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
     {
         public ViewResult Index(User user)
         {
-            var model = new HomeViewModel();
             using (var db = new DataContext(user))
             {
-                model.CallForSpeakersCount = db.CallsForSpeakers.Count(x => x.User.Id == user.Id);
+                var calls = db.CallsForSpeakers.AsNoTracking().Where(x => x.User.Id == user.Id);
+
+                var model = new HomeViewModel(calls);
+
                 return View(model);
             }
         }

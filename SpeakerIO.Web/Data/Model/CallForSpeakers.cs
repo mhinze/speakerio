@@ -10,13 +10,7 @@ namespace SpeakerIO.Web.Data.Model
 
         public CallForSpeakers(CallForSpeakersInput input)
         {
-            LogoUrl = input.LogoUrl;
-            EventName = input.EventName;
-            Description = input.Description;
-
-            FirstDayOfEvent = input.FirstDayOfEvent;
-            LastDayOfEvent = input.LastDayOfEvent;
-            LastDayToSubmit = input.LastDayToSubmit;
+            UpdateFrom(input);
         }
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
@@ -39,5 +33,16 @@ namespace SpeakerIO.Web.Data.Model
         public DateTime? LastDayOfEvent { get; set; }
 
         public string LogoUrl { get; set; }
+
+        public void UpdateFrom(CallForSpeakersInput input)
+        {
+            LogoUrl = input.LogoUrl;
+            EventName = input.EventName;
+            Description = input.Description;
+
+            FirstDayOfEvent = input.FirstDayOfEvent;
+            LastDayOfEvent = input.LastDayOfEvent;
+            LastDayToSubmit = input.LastDayToSubmit;
+        }
     }
 }

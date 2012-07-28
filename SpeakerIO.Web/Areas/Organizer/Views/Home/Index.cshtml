@@ -1,22 +1,52 @@
-﻿@model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
+﻿@using SpeakerIO.Web.Application.Extensions
+@model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
 @helper GetCountText()
-{// easiest way to localize...
+    {
     if (Model.CallForSpeakersCount == 0)
     {
-        @:You have no calls for speakers
+    @:You have no calls for speakers
     }
     else if (Model.CallForSpeakersCount == 1)
     {
-        @:You have 1 call for speakers
+    @:You have 1 call for speakers
     }
     else
     {
-        @:You have @Model.CallForSpeakersCount calls for speakers
+    @:You have @Model.CallForSpeakersCount calls for speakers
     }
 }
 @{
     ViewBag.Title = "Organizer Home";
 }
-<h2>Organizer Home</h2>
-<h3>@GetCountText() </h3>
-<h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers")</h3>
+<div class="row">
+    <div class="span4">
+        <h2>Organizer Home</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="span6">
+        <h3>@GetCountText()</h3>
+        <table class="table table-striped">
+            @foreach (var call in @Model.CallsForSpeakers)
+            {
+                <tr>
+                    <td>@call.EventName</td>    
+                    <td>@call.FirstDayOfEvent.ToDate()</td>    
+                    <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
+                    <td><button class="invite btn btn-info">Invite</button></td>    
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="span4 well">
+        <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers", null, new {@class="btn btn-primary"})</h3>
+    </div>
+</div>
+@section head
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".invite").tooltip({ title : "Copy Invitation Text To Clipboard" });
+        });
+    </script>
+}
