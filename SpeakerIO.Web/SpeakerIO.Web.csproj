@@ -265,6 +265,7 @@
   <ItemGroup>
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Pbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

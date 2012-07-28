@@ -1,0 +1,15 @@
+﻿@model SpeakerIO.Web.Controllers.PbarModel
+@if (Model.IsAuthenticated)
+{
+    <li>
+        <a href="@Model.AccountDetailsLink">@Model.UsersName <img src="@Model.PictureUrl" height="20" width="20" /></a>
+    </li>
+    <li>
+        <a href="@Model.LogoutLink">Logout</a>
+    </li>
+}
+else
+{
+    <li><a href="@Model.LoginLink">Login</a></li>
+}
+
