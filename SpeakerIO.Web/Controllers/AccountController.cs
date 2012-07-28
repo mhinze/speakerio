@@ -85,5 +85,35 @@ namespace SpeakerIO.Web.Controllers
             }
             return View("Details");
         }
+
+        [AllowAnonymous]
+        public PartialViewResult Pbar(User user)
+        {
+            var model = new PbarModel
+            {
+                LoginLink = Url.Action("Login", new{returnUrl = HttpContext.Request.Url.AbsoluteUri}),
+                LogoutLink = Url.Action("Logout"),
+                AccountDetailsLink = Url.Action("Details")
+            };
+
+            if (user != null)
+            {
+                model.IsAuthenticated = true;
+                model.UsersName = user.Name;
+                model.PictureUrl = user.ImageUrl;    
+            }
+
+            return PartialView(model);
+        }
+    }
+
+    public class PbarModel
+    {
+        public bool IsAuthenticated { get; set; }
+        public string PictureUrl { get; set; }
+        public string UsersName { get; set; }
+        public string AccountDetailsLink { get; set; }
+        public string LogoutLink { get; set; }
+        public string LoginLink { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using SpeakerIO.Web.Controllers;
 
 namespace SpeakerIO.Web
 {
@@ -23,7 +24,7 @@ namespace SpeakerIO.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "Home", action = "Index" }
+                defaults: new { controller = "Home", action = "Index" }, namespaces:new[]{typeof(HomeController).Namespace}
             );
         }
     }
