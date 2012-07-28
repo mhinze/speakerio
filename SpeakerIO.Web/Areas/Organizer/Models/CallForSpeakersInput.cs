@@ -16,8 +16,14 @@ namespace SpeakerIO.Web.Areas.Organizer.Models
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
-        public IEnumerable<DateTime> DaysOfEvent { get; set; }
+        [Required]
+        [DisplayName("First Day Of Event")]
+        public DateTime? FirstDayOfEvent { get; set; }
 
+        [Required]
+        [DisplayName("Last Day Of Event")]
+        public DateTime? LastDayOfEvent { get; set; }
+        
         [DisplayName("Last Day To Submit")]
         public DateTime? LastDayToSubmit { get; set; }
         

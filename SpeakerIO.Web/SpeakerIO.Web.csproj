@@ -131,6 +131,18 @@
     <Compile Include="Migrations\201207270431146_TwitterOnUser.Designer.cs">
       <DependentUpon>201207270431146_TwitterOnUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207281400449_AddEventDates.cs" />
+    <Compile Include="Migrations\201207281400449_AddEventDates.Designer.cs">
+      <DependentUpon>201207281400449_AddEventDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207281454515_PuntOnUtc.cs" />
+    <Compile Include="Migrations\201207281454515_PuntOnUtc.Designer.cs">
+      <DependentUpon>201207281454515_PuntOnUtc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207281457128_PuntOnUtc2.cs" />
+    <Compile Include="Migrations\201207281457128_PuntOnUtc2.Designer.cs">
+      <DependentUpon>201207281457128_PuntOnUtc2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
