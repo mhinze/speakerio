@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.Designer.cs">
       <DependentUpon>201207270431146_TwitterOnUser.cs</DependentUpon>
@@ -266,6 +267,7 @@
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Pbar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
