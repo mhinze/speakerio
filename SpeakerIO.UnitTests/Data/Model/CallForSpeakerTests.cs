@@ -17,7 +17,10 @@ namespace SpeakerIO.UnitTests.Data.Model
                 Description = "description",
                 EventName = "event name",
                 LastDayToSubmit = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                FirstDayOfEvent = new DateTime(2001, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LastDayOfEvent = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                 LogoUrl = "logo url"
+
             };
 
             var model = new CallForSpeakers(input);
@@ -25,41 +28,9 @@ namespace SpeakerIO.UnitTests.Data.Model
             model.Description.ShouldEqual(input.Description);
             model.EventName.ShouldEqual(input.EventName);
             model.LastDayToSubmitUtc.ShouldEqual(input.LastDayToSubmit);
+            model.FirstDayOfEventUtc.ShouldEqual(input.FirstDayOfEvent);
+            model.LastDayOfEventUtc.ShouldEqual(input.LastDayOfEvent);
             model.LogoUrl.ShouldEqual(input.LogoUrl);
-        }
-
-        [Test]
-        public void When_setting_last_day_to_submit()
-        {
-            var utcDate = new DateTime(2012, 12, 12, 12, 12, 12, 12, DateTimeKind.Utc);
-            DateTime localDate = utcDate.ToLocalTime();
-
-            var model = new CallForSpeakers();
-
-            model.SetLastDayToSubmit(localDate);
-
-            model.LastDayToSubmitUtc.Value.ShouldEqual(utcDate.Date);
-        }
-
-        [Test]
-        public void When_setting_last_day_to_submit_nullable()
-        {
-            var utcDate = (DateTime?) new DateTime(2012, 12, 12, 12, 12, 12, 12, DateTimeKind.Utc);
-            DateTime localDate = utcDate.Value.ToLocalTime();
-
-            var model = new CallForSpeakers();
-
-            model.SetLastDayToSubmit(localDate);
-
-            model.LastDayToSubmitUtc.Value.ShouldEqual(utcDate.Value.Date);
-        }
-
-        [Test]
-        public void When_setting_last_day_with_null()
-        {
-            var model = new CallForSpeakers();
-            model.SetLastDayToSubmit(null);
-            model.LastDayToSubmitUtc.ShouldBeNull();
         }
     }
 }
