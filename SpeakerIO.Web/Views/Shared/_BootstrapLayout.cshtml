@@ -40,12 +40,12 @@
                 </div>
             </div>
         </div>        
-        @if (TempData.ContainsKey("attenion"))
+        @if (TempData.ContainsKey("attention"))
         {
             <div class="alert alert-block">
-              <a class="close" data-dismiss="alert" href="#">�</a>
-              <h4 class="alert-heading">Attenion!</h4>
-              @TempData["attenion"]
+              <a class="close" data-dismiss="alert" href="#">close</a>
+              <h4 class="alert-heading">Attention!</h4>
+              @TempData["attention"]
             </div>
         }
         <div class="container">
