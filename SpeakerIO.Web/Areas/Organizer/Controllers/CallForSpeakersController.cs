@@ -1,5 +1,4 @@
 ﻿using System.Web.Mvc;
-using RestSharp.Contrib;
 using SpeakerIO.Web.Areas.Organizer.Models;
 using SpeakerIO.Web.Data;
 using SpeakerIO.Web.Data.Model;
@@ -48,7 +47,8 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                     found.UpdateFrom(input);
                     db.SaveChanges();
 
-                    TempData["success"] = "You edited call for speaker for " + found.EventName; // encoded in view
+                    // encoded in view
+                    TempData["success"] = string.Format("You edited your call for speaker for {0}", found.EventName);
                     return RedirectToAction("Index", "Home");
                 }
             }

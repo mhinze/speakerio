@@ -24,7 +24,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="span4">
+    <div class="span6">
         <h3>@GetCountText()</h3>
         <table class="table table-striped">
             @foreach (var call in @Model.CallsForSpeakers)
@@ -38,8 +38,8 @@
             }
         </table>
     </div>
-    <div class="span4">
-        <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers")</h3>
+    <div class="span4 well">
+        <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers", null, new {@class="btn btn-primary"})</h3>
     </div>
 </div>
 @section head
