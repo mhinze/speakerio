@@ -14,9 +14,9 @@ namespace SpeakerIO.Web.Data.Model
             EventName = input.EventName;
             Description = input.Description;
 
-            FirstDayOfEventUtc = input.FirstDayOfEvent;
-            LastDayOfEventUtc = input.LastDayOfEvent;
-            LastDayToSubmitUtc = input.LastDayToSubmit;
+            FirstDayOfEvent = input.FirstDayOfEvent;
+            LastDayOfEvent = input.LastDayOfEvent;
+            LastDayToSubmit = input.LastDayToSubmit;
         }
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
@@ -26,7 +26,7 @@ namespace SpeakerIO.Web.Data.Model
 
         public User User { get; set; }
 
-        public DateTime? LastDayToSubmitUtc { get; set; }
+        public DateTime? LastDayToSubmit { get; set; }
 
         [Required]
         public string Description { get; set; }
@@ -34,9 +34,9 @@ namespace SpeakerIO.Web.Data.Model
         [Required]
         public string EventName { get; set; }
 
-        public DateTime? FirstDayOfEventUtc { get; set; }
+        public DateTime? FirstDayOfEvent { get; set; }
 
-        public DateTime? LastDayOfEventUtc { get; set; }
+        public DateTime? LastDayOfEvent { get; set; }
 
         public string LogoUrl { get; set; }
     }

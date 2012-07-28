@@ -139,6 +139,10 @@
     <Compile Include="Migrations\201207281454515_PuntOnUtc.Designer.cs">
       <DependentUpon>201207281454515_PuntOnUtc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207281457128_PuntOnUtc2.cs" />
+    <Compile Include="Migrations\201207281457128_PuntOnUtc2.Designer.cs">
+      <DependentUpon>201207281457128_PuntOnUtc2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">

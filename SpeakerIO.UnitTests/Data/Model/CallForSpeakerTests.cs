@@ -27,9 +27,9 @@ namespace SpeakerIO.UnitTests.Data.Model
 
             model.Description.ShouldEqual(input.Description);
             model.EventName.ShouldEqual(input.EventName);
-            model.LastDayToSubmitUtc.ShouldEqual(input.LastDayToSubmit);
-            model.FirstDayOfEventUtc.ShouldEqual(input.FirstDayOfEvent);
-            model.LastDayOfEventUtc.ShouldEqual(input.LastDayOfEvent);
+            model.LastDayToSubmit.ShouldEqual(input.LastDayToSubmit);
+            model.FirstDayOfEvent.ShouldEqual(input.FirstDayOfEvent);
+            model.LastDayOfEvent.ShouldEqual(input.LastDayOfEvent);
             model.LogoUrl.ShouldEqual(input.LogoUrl);
         }
     }
