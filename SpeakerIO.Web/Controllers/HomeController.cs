@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using SpeakerIO.Web.Data;
 
 namespace SpeakerIO.Web.Controllers
 {
@@ -8,5 +10,19 @@ namespace SpeakerIO.Web.Controllers
          {
              return View();
          }
+
+        public ActionResult Call(string key)
+        {
+            using (var db = new DataContext())
+            {
+                var found = db.CallsForSpeakers.AsNoTracking().SingleOrDefault(x => x.UniqueUrlKey.ToLower() == key.ToLower());
+                if (found == null)
+                {
+                    TempData["error"] = "The call for speakers cannot be found";
+                    return RedirectToAction("Index");
+                }
+                return View(found);
+            }
+        }
     }
 }

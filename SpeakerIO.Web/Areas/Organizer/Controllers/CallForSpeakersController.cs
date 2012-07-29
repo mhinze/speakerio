@@ -40,7 +40,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                 using (var db = new DataContext(user))
                 {
                     var found = db.CallsForSpeakers.Find(input.Id);
-                    if (found.User.Id != user.Id)
+                    if (found == null || found.User.Id != user.Id)
                     {
                         return InvalidEdit();
                     }
@@ -53,6 +53,29 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                 }
             }
             return View("Create");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(User user, long id)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new DataContext(user))
+                {
+                    var found = db.CallsForSpeakers.Find(id);
+                    if (found == null || found.User.Id != user.Id)
+                    {
+                        return InvalidEdit();
+                    }
+                    db.CallsForSpeakers.Remove(found);
+                    db.SaveChanges();
+
+                    // encoded in view
+                    TempData["success"] = string.Format("You deleted your call for speaker for {0}", found.EventName);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         ActionResult InvalidEdit()

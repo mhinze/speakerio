@@ -147,6 +147,10 @@
     <Compile Include="Migrations\201207281457128_PuntOnUtc2.Designer.cs">
       <DependentUpon>201207281457128_PuntOnUtc2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201207291111419_UniqueUrlKeyOnCallForSpeaker.cs" />
+    <Compile Include="Migrations\201207291111419_UniqueUrlKeyOnCallForSpeaker.Designer.cs">
+      <DependentUpon>201207291111419_UniqueUrlKeyOnCallForSpeaker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
@@ -279,6 +283,7 @@
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Pbar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Call.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
