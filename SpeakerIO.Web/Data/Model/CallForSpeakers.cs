@@ -43,6 +43,10 @@ namespace SpeakerIO.Web.Data.Model
         void SetKey(CallForSpeakersInput input)
         {
             var eventKey = (input.EventName ?? string.Empty).ToLower().Replace(' ', '-');
+            if (eventKey.Length > 26)
+            {
+                eventKey = eventKey.Substring(0, 26);
+            }
             var dateKey = FirstDayOfEvent == null ? "" : FirstDayOfEvent.Value.ToString("-yyyy-MM-dd");
             UniqueUrlKey = string.Format("{0}{1}", eventKey, dateKey);
         }
