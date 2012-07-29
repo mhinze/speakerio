@@ -10,6 +10,24 @@ namespace SpeakerIO.UnitTests.Data.Model
     public class CallForSpeakerTests
     {
         [Test]
+        public void Should_generate_unique_url_key()
+        {
+            var input = new CallForSpeakersInput
+            {
+                Description = "description",
+                EventName = "event name",
+                LastDayToSubmit = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                FirstDayOfEvent = new DateTime(2001, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LastDayOfEvent = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LogoUrl = "logo url"
+            };
+
+            var call = new CallForSpeakers(input);
+
+            call.UniqueUrlKey.ShouldEqual("event-name-2001-02-01");
+        }
+
+        [Test]
         public void When_initializing_data_entity_from_user_input()
         {
             var input = new CallForSpeakersInput
@@ -20,7 +38,6 @@ namespace SpeakerIO.UnitTests.Data.Model
                 FirstDayOfEvent = new DateTime(2001, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                 LastDayOfEvent = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                 LogoUrl = "logo url"
-
             };
 
             var model = new CallForSpeakers(input);

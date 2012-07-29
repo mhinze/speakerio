@@ -6,7 +6,7 @@ namespace SpeakerIO.Web.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.CallForSpeakers", "FirstDayOfEvent", c => c.DateTime(nullable: false));
+            AddColumn("dbo.CallForSpeakers", "FirstDayOfEventUtc", c => c.DateTime(nullable: false));
             AddColumn("dbo.CallForSpeakers", "LastDayOfEventUtc", c => c.DateTime(nullable: false));
         }
 

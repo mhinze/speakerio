@@ -1,18 +1,18 @@
 ﻿@using SpeakerIO.Web.Application.Extensions
 @model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
 @helper GetCountText()
-    {
+{
     if (Model.CallForSpeakersCount == 0)
     {
-    @:You have no calls for speakers
+        @:You have no calls for speakers
     }
     else if (Model.CallForSpeakersCount == 1)
     {
-    @:You have 1 call for speakers
+        @:You have 1 call for speakers
     }
     else
     {
-    @:You have @Model.CallForSpeakersCount calls for speakers
+        @:You have @Model.CallForSpeakersCount calls for speakers
     }
 }
 @{
@@ -24,7 +24,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="span6">
+    <div class="span5">
         <h3>@GetCountText()</h3>
         <table class="table table-striped">
             @foreach (var call in @Model.CallsForSpeakers)
@@ -32,21 +32,33 @@
                 <tr>
                     <td>@call.EventName</td>    
                     <td>@call.FirstDayOfEvent.ToDate()</td>    
+                    <td><button class="invite btn btn-success">Invite</button></td>    
+                    <td>@Html.ActionLink("View", "Call", "Home", new {area = "", key = call.UniqueUrlKey}, new {@class = "view btn btn-info"})</td>
                     <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
-                    <td><button class="invite btn btn-info">Invite</button></td>    
+                    <td>
+                        @using (Html.BeginForm("Delete", "CallForSpeakers", FormMethod.Post))
+                        {
+                            @Html.Hidden("id", call.Id)
+                            <button class="delete btn btn-danger" type="submit">Delete</button>
+                        }
+                    </td>    
                 </tr>
             }
         </table>
     </div>
     <div class="span4 well">
-        <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers", null, new {@class="btn btn-primary"})</h3>
+        <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers", null, new { @class = "btn btn-primary" })</h3>
     </div>
 </div>
 @section head
 {
     <script type="text/javascript">
-        $(function () {
-            $(".invite").tooltip({ title : "Copy Invitation Text To Clipboard" });
+        $(function() {
+            $(".invite").tooltip({ title: "Copy invitation text to clipboard" });
+            $(".view").tooltip({ title: "We made a page to show your call for speakers" });
+            $(".delete").click(function() {
+                return confirm("You are about to delete this call for speakers.");
+            });
         });
     </script>
 }

@@ -22,8 +22,8 @@ namespace SpeakerIO.Web.Areas.Organizer.Models
 
         public CallForSpeakersInput() {}
 
-        [Required]
         [DisplayName("Event Name")]
+        [Required]
         public string EventName { get; set; }
         
         [Required]
@@ -52,4 +52,8 @@ namespace SpeakerIO.Web.Areas.Organizer.Models
         [HiddenInput(DisplayValue = false)]
         public long? Id { get; set; }
     }
+
+
+
+ 
 }

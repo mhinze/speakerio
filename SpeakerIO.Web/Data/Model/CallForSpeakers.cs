@@ -10,7 +10,9 @@ namespace SpeakerIO.Web.Data.Model
 
         public CallForSpeakers(CallForSpeakersInput input)
         {
+            EventName = input.EventName;
             UpdateFrom(input);
+            SetKey(input);
         }
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
@@ -34,10 +36,20 @@ namespace SpeakerIO.Web.Data.Model
 
         public string LogoUrl { get; set; }
 
+        [Required]
+        [StringLength(40)]
+        public string UniqueUrlKey { get; set; }
+
+        void SetKey(CallForSpeakersInput input)
+        {
+            var eventKey = (input.EventName ?? string.Empty).ToLower().Replace(' ', '-');
+            var dateKey = FirstDayOfEvent == null ? "" : FirstDayOfEvent.Value.ToString("-yyyy-MM-dd");
+            UniqueUrlKey = string.Format("{0}{1}", eventKey, dateKey);
+        }
+
         public void UpdateFrom(CallForSpeakersInput input)
         {
             LogoUrl = input.LogoUrl;
-            EventName = input.EventName;
             Description = input.Description;
 
             FirstDayOfEvent = input.FirstDayOfEvent;
