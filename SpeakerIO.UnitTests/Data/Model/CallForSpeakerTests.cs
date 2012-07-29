@@ -28,6 +28,25 @@ namespace SpeakerIO.UnitTests.Data.Model
         }
 
         [Test]
+        public void Should_truncate_large_key()
+        {
+            var input = new CallForSpeakersInput
+            {
+                Description = "description",
+                EventName = "1234567890123456789012345678901234567890",
+                LastDayToSubmit = new DateTime(2001, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                FirstDayOfEvent = new DateTime(2001, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LastDayOfEvent = new DateTime(2001, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                LogoUrl = "logo url"
+            };
+
+            var call = new CallForSpeakers(input);
+
+            call.UniqueUrlKey.ShouldEqual("12345678901234567890123456-2001-02-01");
+            call.UniqueUrlKey.Length.ShouldBeInRange(1, 40);
+        }
+
+        [Test]
         public void When_initializing_data_entity_from_user_input()
         {
             var input = new CallForSpeakersInput

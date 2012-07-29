@@ -32,4 +32,13 @@ namespace SpeakerIO.Web.Application
             return _helper.IsLocalUrl(url);
         }
     }
+
+    public static class UrlExtensions
+    {
+        public static string AbsoluteAction(this UrlHelper url, string action, string controller, object routeValues)
+        {
+            return new UrlResolver(url).AbsoluteAction(action, controller, routeValues);
+        }
+    }
+
 }
