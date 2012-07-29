@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.Entity;
 using SpeakerIO.Web.Data.Model;
+using SpeakerIO.Web.Migrations;
 
 namespace SpeakerIO.Web.Data
 {
@@ -16,5 +17,11 @@ namespace SpeakerIO.Web.Data
 
         public DbSet<CallForSpeakers> CallsForSpeakers { get; set; }
         public DbSet<User> Users { get; set; }
+        
+        // will eventually want migrate.exe
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataContext, Configuration>());
+        }
     }
 }
