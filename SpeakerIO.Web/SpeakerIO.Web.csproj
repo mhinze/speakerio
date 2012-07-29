@@ -44,6 +44,9 @@
       <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Premotion.AspNet.AppHarbor.Integration">
+      <HintPath>..\packages\Premotion.AspNet.AppHarbor.Integration.0.4.0\lib\net40\Premotion.AspNet.AppHarbor.Integration.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.103.2\lib\net4\RestSharp.dll</HintPath>
     </Reference>
