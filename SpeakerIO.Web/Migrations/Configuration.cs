@@ -9,7 +9,7 @@ namespace SpeakerIO.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(SpeakerIO.Web.Data.DataContext context)
