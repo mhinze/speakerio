@@ -1,4 +1,5 @@
-﻿@using SpeakerIO.Web.Application.Extensions
+﻿@using SpeakerIO.Web.Application
+@using SpeakerIO.Web.Application.Extensions
 @model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
 @helper GetCountText()
 {
@@ -27,13 +28,37 @@
     <div class="span5">
         <h3>@GetCountText()</h3>
         <table class="table table-striped">
-            @foreach (var call in @Model.CallsForSpeakers)
+            @for (int index = 0; index < @Model.CallsForSpeakers.Length; index++)
             {
+                var call = @Model.CallsForSpeakers[index];
+                
                 <tr>
                     <td>@call.EventName</td>    
                     <td>@call.FirstDayOfEvent.ToDate()</td>    
-                    <td><button class="invite btn btn-success">Invite</button></td>    
-                    <td>@Html.ActionLink("View", "Call", "Home", new {area = "", key = call.UniqueUrlKey}, new {@class = "view btn btn-info"})</td>
+                    <td><button class="invite btn btn-success" data-toggle="modal" href="#@("mod" + index)">Invite</button>
+
+                        @* shameful hack *@
+                        <div class="modal hide" id="@("mod" + index)">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h3>Invitation Text</h3>
+                            </div>
+                            <div class="modal-body">
+                                <h2>@call.EventName</h2>
+                                <p>@call.Description</p>
+                                <p>@call.FirstDayOfEvent.ToDate() to @call.LastDayToSubmit.ToDate()</p>
+                                <p>Call For Speakers</p>
+                                <p>We are looking for presenters like you for @call.EventName!</p>  
+                                
+                                <p>Please visit <a href="@Url.AbsoluteAction("Call", "Home", new { key = call.UniqueUrlKey, area = "" })">@Url.AbsoluteAction("Call", "Home", new { key = call.UniqueUrlKey, area = "" })</a> today to submit a session.</p>
+                                <p>Submission deadline: @call.LastDayToSubmit.ToDate()</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn" data-dismiss="modal">Close</a>
+                            </div>
+                        </div>
+                    </td>    
+                    <td>@Html.ActionLink("View", "Call", "Home", new { area = "", key = call.UniqueUrlKey }, new { @class = "view btn btn-info" })</td>
                     <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
                     <td>
                         @using (Html.BeginForm("Delete", "CallForSpeakers", FormMethod.Post))
@@ -53,10 +78,10 @@
 @section head
 {
     <script type="text/javascript">
-        $(function() {
-            $(".invite").tooltip({ title: "Copy invitation text to clipboard" });
+        $(function () {
+            $(".invite").tooltip({title: "We prepared sample text you can copy and send to prospective speakers"});
             $(".view").tooltip({ title: "We made a page to show your call for speakers" });
-            $(".delete").click(function() {
+            $(".delete").click(function () {
                 return confirm("You are about to delete this call for speakers.");
             });
         });
