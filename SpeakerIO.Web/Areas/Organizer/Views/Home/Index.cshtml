@@ -33,6 +33,7 @@
                     <td>@call.EventName</td>    
                     <td>@call.FirstDayOfEvent.ToDate()</td>    
                     <td><button class="invite btn btn-success">Invite</button></td>    
+                    <td>@Html.ActionLink("View", "Call", "Home", new {area = "", key = call.UniqueUrlKey}, new {@class = "view btn btn-info"})</td>
                     <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
                     <td>
                         @using (Html.BeginForm("Delete", "CallForSpeakers", FormMethod.Post))
@@ -53,7 +54,8 @@
 {
     <script type="text/javascript">
         $(function() {
-            $(".invite").tooltip({ title: "Copy Invitation Text To Clipboard" });
+            $(".invite").tooltip({ title: "Copy invitation text to clipboard" });
+            $(".view").tooltip({ title: "We made a page to show your call for speakers" });
             $(".delete").click(function() {
                 return confirm("You are about to delete this call for speakers.");
             });

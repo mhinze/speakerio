@@ -22,11 +22,18 @@ namespace SpeakerIO.Web
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            routes.MapRoute(name: "Calls", url: "call-for-speakers/{key}",
+                            defaults: new { controller = "Home", action = "Call", },
+                            namespaces: new[] { typeof(HomeController).Namespace });
+
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index" }, namespaces:new[]{typeof(HomeController).Namespace}
             );
+
+            
         }
     }
 }
