@@ -11,6 +11,7 @@ namespace SpeakerIO.Web.Models
         {
             Name = user.Name;
             EmailAddress = user.Email;
+            Twitter = user.Twitter;
         }
 
         [Required]
