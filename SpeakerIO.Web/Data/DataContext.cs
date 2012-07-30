@@ -17,6 +17,7 @@ namespace SpeakerIO.Web.Data
 
         public DbSet<CallForSpeakers> CallsForSpeakers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Submission> Submissions { get; set; }
         
         // will eventually want migrate.exe
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
