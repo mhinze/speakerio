@@ -38,6 +38,9 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
                         Error("There was a problem submitting this session");
                         return RedirectToAction("Index", "Home", new {area = ""});
                     }
+                    var submission = new Submission(user, input, found);
+                    db.Submissions.Add(submission);
+                    db.SaveChanges();
                 }
 
                 Success("Successfully submitted session");
