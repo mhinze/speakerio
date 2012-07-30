@@ -130,7 +130,12 @@
   <ItemGroup>
     <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="Areas\Speaker\Controllers\SubmissionController.cs" />
+    <Compile Include="Areas\Speaker\Models\SubmissionViewModel.cs" />
+    <Compile Include="Areas\Speaker\SpeakerAreaRegistration.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Model\Submission.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.Designer.cs">
       <DependentUpon>201207270431146_TwitterOnUser.cs</DependentUpon>
@@ -150,6 +155,10 @@
     <Compile Include="Migrations\201207291111419_UniqueUrlKeyOnCallForSpeaker.cs" />
     <Compile Include="Migrations\201207291111419_UniqueUrlKeyOnCallForSpeaker.Designer.cs">
       <DependentUpon>201207291111419_UniqueUrlKeyOnCallForSpeaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201207300145183_InitialSubmission.cs" />
+    <Compile Include="Migrations\201207300145183_InitialSubmission.Designer.cs">
+      <DependentUpon>201207300145183_InitialSubmission.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
@@ -242,6 +251,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Organizer\Views\Shared\" />
+    <Folder Include="Areas\Speaker\Views\Shared\" />
     <Folder Include="Data\Services\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
@@ -279,6 +289,9 @@
     <Content Include="Views\Shared\_alerts.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Speaker\Views\Web.config" />
+    <Content Include="Areas\Speaker\Views\Submission\Create.cshtml" />
+    <Content Include="Areas\Speaker\Views\_ViewStart.cshtml" />
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Pbar.cshtml" />
