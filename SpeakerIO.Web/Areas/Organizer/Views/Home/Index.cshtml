@@ -36,7 +36,6 @@
                     <td>@call.EventName</td>    
                     <td>@call.FirstDayOfEvent.ToDate()</td>    
                     <td><button class="invite btn btn-success" data-toggle="modal" href="#@("mod" + index)">Invite</button>
-
                         @* shameful hack *@
                         <div class="modal hide" id="@("mod" + index)">
                             <div class="modal-header">
@@ -57,7 +56,10 @@
                                 <a href="#" class="btn" data-dismiss="modal">Close</a>
                             </div>
                         </div>
-                    </td>    
+                    </td>
+                    <td>
+                        @Html.ActionLink("Review Submissions", "Review", "Submissions", new { id = call.Id }, new { @class = "btn btn-info" })
+                    </td>
                     <td>@Html.ActionLink("View", "Call", "Home", new { area = "", key = call.Slug }, new { @class = "view btn btn-info" })</td>
                 </tr>
             }
