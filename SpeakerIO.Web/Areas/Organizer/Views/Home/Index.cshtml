@@ -59,14 +59,6 @@
                         </div>
                     </td>    
                     <td>@Html.ActionLink("View", "Call", "Home", new { area = "", key = call.UniqueUrlKey }, new { @class = "view btn btn-info" })</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
-                    <td>
-                        @using (Html.BeginForm("Delete", "CallForSpeakers", FormMethod.Post))
-                        {
-                            @Html.Hidden("id", call.Id)
-                            <button class="delete btn btn-danger" type="submit">Delete</button>
-                        }
-                    </td>    
                 </tr>
             }
         </table>
