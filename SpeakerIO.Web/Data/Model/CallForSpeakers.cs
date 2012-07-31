@@ -37,8 +37,8 @@ namespace SpeakerIO.Web.Data.Model
         public string LogoUrl { get; set; }
 
         [Required]
-        [StringLength(40)]
-        public string UniqueUrlKey { get; set; }
+        [StringLength(100)]
+        public string Slug { get; set; }
 
         void SetKey(CallForSpeakersInput input)
         {
@@ -48,7 +48,7 @@ namespace SpeakerIO.Web.Data.Model
                 eventKey = eventKey.Substring(0, 26);
             }
             var dateKey = FirstDayOfEvent == null ? "" : FirstDayOfEvent.Value.ToString("-yyyy-MM-dd");
-            UniqueUrlKey = string.Format("{0}{1}", eventKey, dateKey);
+            Slug = string.Format("{0}{1}", eventKey, dateKey);
         }
 
         public void UpdateFrom(CallForSpeakersInput input)

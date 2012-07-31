@@ -15,7 +15,7 @@ namespace SpeakerIO.Web.Controllers
         {
             using (var db = new DataContext())
             {
-                var found = db.CallsForSpeakers.AsNoTracking().SingleOrDefault(x => x.UniqueUrlKey.ToLower() == key.ToLower());
+                var found = db.CallsForSpeakers.AsNoTracking().SingleOrDefault(x => x.Slug.ToLower() == key.ToLower());
                 if (found == null)
                 {
                     TempData["error"] = "The call for speakers cannot be found";

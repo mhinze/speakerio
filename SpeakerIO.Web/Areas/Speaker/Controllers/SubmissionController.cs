@@ -15,7 +15,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
         {
             using (var db = new DataContext())
             {
-                var found = db.CallsForSpeakers.SingleOrDefault(x => x.UniqueUrlKey == key);
+                var found = db.CallsForSpeakers.SingleOrDefault(x => x.Slug == key);
                 if (found == null)
                 {
                     Error("Invalid call for speakers");

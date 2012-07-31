@@ -23,7 +23,7 @@ namespace SpeakerIO.UnitTests.Areas.Organizer.Models
                 LastDayOfEvent = new DateTime(2001,1,3),
                 LastDayToSubmit = new DateTime(2001,1,4),
                 LogoUrl = "logo url",
-                UniqueUrlKey = "asdasd",
+                Slug = "asdasd",
                 User = user
             };
 
