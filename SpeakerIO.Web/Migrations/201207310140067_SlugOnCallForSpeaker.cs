@@ -7,8 +7,8 @@ namespace SpeakerIO.Web.Migrations
         public override void Up()
         {
             AddColumn("dbo.CallForSpeakers", "Slug", c => c.String(nullable: false, maxLength: 40));
-            DropColumn("dbo.CallForSpeakers", "UniqueUrlKey");
             DropIndex("dbo.CallForSpeakers", new[] { "UniqueUrlKey" });
+            DropColumn("dbo.CallForSpeakers", "UniqueUrlKey");
             CreateIndex("dbo.CallForSpeakers", "Slug", unique: true);
         }
 
@@ -16,6 +16,7 @@ namespace SpeakerIO.Web.Migrations
         {
             AddColumn("dbo.CallForSpeakers", "UniqueUrlKey", c => c.String(nullable: false, maxLength: 40));
             CreateIndex("dbo.CallForSpeakers", "UniqueUrlKey", unique: true);
+            DropIndex("dbo.CallForSpeakers", new[] { "Slug" });
             DropColumn("dbo.CallForSpeakers", "Slug");
         }
     }
