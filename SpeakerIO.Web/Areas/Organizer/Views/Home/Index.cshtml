@@ -36,7 +36,6 @@
                     <td>@call.EventName</td>    
                     <td>@call.FirstDayOfEvent.ToDate()</td>    
                     <td><button class="invite btn btn-success" data-toggle="modal" href="#@("mod" + index)">Invite</button>
-
                         @* shameful hack *@
                         <div class="modal hide" id="@("mod" + index)">
                             <div class="modal-header">
@@ -50,23 +49,18 @@
                                 <p>Call For Speakers</p>
                                 <p>We are looking for presenters like you for @call.EventName!</p>  
                                 
-                                <p>Please visit <a href="@Url.AbsoluteAction("Call", "Home", new { key = call.UniqueUrlKey, area = "" })">@Url.AbsoluteAction("Call", "Home", new { key = call.UniqueUrlKey, area = "" })</a> today to submit a session.</p>
+                                <p>Please visit <a href="@Url.AbsoluteAction("Call", "Home", new { key = call.Slug, area = "" })">@Url.AbsoluteAction("Call", "Home", new { key = call.Slug, area = "" })</a> today to submit a session.</p>
                                 <p>Submission deadline: @call.LastDayToSubmit.ToDate()</p>
                             </div>
                             <div class="modal-footer">
                                 <a href="#" class="btn" data-dismiss="modal">Close</a>
                             </div>
                         </div>
-                    </td>    
-                    <td>@Html.ActionLink("View", "Call", "Home", new { area = "", key = call.UniqueUrlKey }, new { @class = "view btn btn-info" })</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "CallForSpeakers", new { id = call.Id }, new { @class = "btn btn-primary" })</td>    
+                    </td>
                     <td>
-                        @using (Html.BeginForm("Delete", "CallForSpeakers", FormMethod.Post))
-                        {
-                            @Html.Hidden("id", call.Id)
-                            <button class="delete btn btn-danger" type="submit">Delete</button>
-                        }
-                    </td>    
+                        @Html.ActionLink("Review Submissions", "Review", "Submissions", new { id = call.Id }, new { @class = "btn btn-info" })
+                    </td>
+                    <td>@Html.ActionLink("View", "Call", "Home", new { area = "", key = call.Slug }, new { @class = "view btn btn-info" })</td>
                 </tr>
             }
         </table>

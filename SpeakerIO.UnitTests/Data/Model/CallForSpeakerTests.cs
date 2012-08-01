@@ -24,7 +24,7 @@ namespace SpeakerIO.UnitTests.Data.Model
 
             var call = new CallForSpeakers(input);
 
-            call.UniqueUrlKey.ShouldEqual("event-name-2001-02-01");
+            call.Slug.ShouldEqual("event-name-2001-02-01");
         }
 
         [Test]
@@ -42,8 +42,8 @@ namespace SpeakerIO.UnitTests.Data.Model
 
             var call = new CallForSpeakers(input);
 
-            call.UniqueUrlKey.ShouldEqual("12345678901234567890123456-2001-02-01");
-            call.UniqueUrlKey.Length.ShouldBeInRange(1, 40);
+            call.Slug.ShouldEqual("12345678901234567890123456-2001-02-01");
+            call.Slug.Length.ShouldBeInRange(1, 40);
         }
 
         [Test]
