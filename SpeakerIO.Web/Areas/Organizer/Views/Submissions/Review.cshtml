@@ -1,14 +1,72 @@
 ﻿@model IEnumerable<SpeakerIO.Web.Data.Model.Submission>
 
-<h2>Subimssions</h2>
-
-<table>
-@foreach( var submission in @Model)
-{
-    <tr>
-        <td>@submission.Speaker.Name</td>
-        <td>@submission.Title</td>
-        <td>@submission.Abstract</td>
-    </tr>
+<div class="row">
+    <h2>Submissions</h2>
+</div>
+<div class="row">
+    @Html.ValidationSummary()
+    <table class="table-striped table">
+        @foreach (var submission in @Model)
+        {
+            <tr>
+                <td>@submission.Speaker.Name</td>
+                <td>@submission.Title</td>
+                <td>@submission.Abstract</td>
+                <td>@submission.Status</td>
+                <td>
+                    @if (submission.CanAccept())
+                    {
+                        using (Html.BeginForm("Accept", "Submissions"))
+                        {
+                            @Html.Hidden("id", submission.Id)
+                            @Html.Hidden("callForSpeakersId", submission.CallForSpeakers.Id)
+                            <button class="btn btn-success accept" type="submit">Accept</button>
+                        }
+                    }
+                    else
+                    {
+                        <button class="btn disabled">Accept</button>
+                    }
+                </td>
+                <td>
+                    @if (submission.CanReject())
+                    {
+                        using (Html.BeginForm("Reject", "Submissions"))
+                        {
+                        @Html.Hidden("id", submission.Id)
+                        @Html.Hidden("callForSpeakersId", submission.CallForSpeakers.Id)
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#modal-@submission.Id" type="button">Reject</button>
+                        <div class="modal hide" id="modal-@submission.Id">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h3>Please provide a rejection reason - this will be sent to the submitter</h3>
+                            </div>
+                            <div class="modal-body">
+                                <p>@Html.Label("reason", "Rejection Reason")</p>
+                                <p>@Html.TextArea("reason")</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+                                <button class="btn btn-warning" type="submit">Reject</button>
+                            </div>
+                        </div>
+                        }
+                    }
+                    else
+                    {
+                        <button class="btn disabled">Reject</button>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@section head{
+    <script type="text/javascript">
+        $(function () {
+            $(".accept").click(function () {
+                return confirm("You are about to accept this submission. The submitter will be notified immediately.");
+            });
+        });
+    </script>
 }
-</table>

@@ -5,12 +5,17 @@ namespace SpeakerIO.Web.Data.Model
 {
     public class Submission : DataEntity
     {
+        const string Submitted = "Submitted";
+        const string Rejected = "Rejected";
+        const string Accepted = "Accepted";
+
         public Submission(User speaker, SubmissionViewModel input, CallForSpeakers callForSpeakers)
         {
             Speaker = speaker;
             CallForSpeakers = callForSpeakers;
             Title = input.Title;
             Abstract = input.Abstract;
+            Status = Submitted;
         }
 
         protected Submission() {}
@@ -26,5 +31,31 @@ namespace SpeakerIO.Web.Data.Model
 
         [Required]
         public string Abstract { get; set; }
+
+        [Required]
+        public string Status { get; protected set; }
+
+        public string RejectionReason { get; set; }
+
+        public void Reject(string reason)
+        {
+            Status = Rejected;
+            RejectionReason = reason;
+        }
+
+        public bool CanAccept()
+        {
+            return Status == Submitted;
+        }
+
+        public bool CanReject()
+        {
+            return Status == Submitted;
+        }
+
+        public void Accept()
+        {
+            Status = Accepted;
+        }
     }
 }

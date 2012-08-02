@@ -12,7 +12,7 @@ namespace SpeakerIO.Web.Data.Model
         {
             EventName = input.EventName;
             UpdateFrom(input);
-            SetKey(input);
+            SetSlug(input);
         }
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
@@ -40,7 +40,7 @@ namespace SpeakerIO.Web.Data.Model
         [StringLength(100)]
         public string Slug { get; set; }
 
-        void SetKey(CallForSpeakersInput input)
+        void SetSlug(CallForSpeakersInput input)
         {
             var eventKey = (input.EventName ?? string.Empty).ToLower().Replace(' ', '-');
             if (eventKey.Length > 26)

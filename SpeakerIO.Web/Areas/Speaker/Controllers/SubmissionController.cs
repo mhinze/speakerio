@@ -11,11 +11,11 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
     public class SubmissionController : BaseController
     {
         [HttpGet]
-        public ActionResult Create(string key)
+        public ActionResult Create(string slug)
         {
             using (var db = new DataContext())
             {
-                var found = db.CallsForSpeakers.SingleOrDefault(x => x.Slug == key);
+                var found = db.CallsForSpeakers.SingleOrDefault(x => x.Slug == slug);
                 if (found == null)
                 {
                     Error("Invalid call for speakers");

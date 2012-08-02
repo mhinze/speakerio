@@ -130,6 +130,8 @@
   <ItemGroup>
     <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="Areas\Organizer\Models\RejectionInput.cs" />
+    <Compile Include="Areas\Organizer\Models\DecisionInput.cs" />
     <Compile Include="Areas\Organizer\Controllers\SubmissionsController.cs" />
     <Compile Include="Areas\Speaker\Controllers\SubmissionController.cs" />
     <Compile Include="Areas\Speaker\Models\SubmissionViewModel.cs" />
@@ -164,6 +166,14 @@
     <Compile Include="Migrations\201207310140067_SlugOnCallForSpeaker.cs" />
     <Compile Include="Migrations\201207310140067_SlugOnCallForSpeaker.Designer.cs">
       <DependentUpon>201207310140067_SlugOnCallForSpeaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201208020220086_SubmissionStatus.cs" />
+    <Compile Include="Migrations\201208020220086_SubmissionStatus.Designer.cs">
+      <DependentUpon>201208020220086_SubmissionStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201208020224039_SubmissionStatus2.cs" />
+    <Compile Include="Migrations\201208020224039_SubmissionStatus2.Designer.cs">
+      <DependentUpon>201208020224039_SubmissionStatus2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
