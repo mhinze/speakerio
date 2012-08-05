@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
+using SpeakerIO.Web.Application.Email;
 using SpeakerIO.Web.Areas.Organizer.Models;
 using SpeakerIO.Web.Controllers;
 using SpeakerIO.Web.Data;
@@ -12,6 +13,13 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
     [Authorize]
     public class SubmissionsController : BaseController
     {
+        readonly IDomainEmailSender _email;
+
+        public SubmissionsController(IDomainEmailSender email)
+        {
+            _email = email;
+        }
+
         [HttpGet]
         public ActionResult Review(User user, long id)
         {
@@ -39,8 +47,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         [HttpPost]
         public ActionResult Reject(User user, RejectionInput input)
         {
-            return PerformTransition(user, input, x => x.Reject(input.Reason),
-                                     "You have successfully rejected this submission");
+            return PerformTransition(user, input, x => x.Reject(input.Reason, _email), "You have successfully rejected this submission");
         }
 
         ActionResult PerformTransition(User user, DecisionInput input, Action<Submission> action, string successText)
@@ -73,7 +80,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         [HttpPost]
         public ActionResult Accept(User user, DecisionInput input)
         {
-            return PerformTransition(user, input, x => x.Accept(), "You have successfully accepted this submission.");
+            return PerformTransition(user, input, x => x.Accept(_email), "You have successfully accepted this submission.");
         }
     }
 }

@@ -31,7 +31,7 @@ namespace SpeakerIO.Web.Application.Email
             };
 
             request.AddParameter("domain", domain, ParameterType.UrlSegment);
-            request.AddParameter("from", message.From);
+            request.AddParameter("from", message.From ?? GetNoReply());
             foreach (var to in message.To)
             {
                 request.AddParameter("to", to);
@@ -49,6 +49,11 @@ namespace SpeakerIO.Web.Application.Email
             request.AddParameter("html", message.Html);
 
             var response = restClient.Execute(request);
+        }
+
+        string GetNoReply()
+        {
+            return "no-reply@" + _settings.MailgunDomain();
         }
     }
 }

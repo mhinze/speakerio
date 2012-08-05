@@ -132,8 +132,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Email\DomainEmailSender.cs" />
     <Compile Include="Application\Email\EmailMessage.cs" />
     <Compile Include="Application\Email\EmailService.cs" />
+    <Compile Include="Application\Email\IDomainEmailSender.cs" />
     <Compile Include="Application\Email\IEmailService.cs" />
     <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />

@@ -54,8 +54,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Email\DomainEmailSenderTests_rejection.cs" />
+    <Compile Include="Application\Email\DomainEmailSenderTests_acceptance.cs" />
     <Compile Include="Application\Login\LoginServiceTester_BuildingLoginModel.cs" />
     <Compile Include="Areas\Organizer\Models\CallForSpeakersInputTests.cs" />
+    <Compile Include="Data\Model\SubmissionTests.cs" />
     <Compile Include="IntegrationTests\Email\Sending_an_email.cs" />
     <Compile Include="Models\UserDetailsInputTests.cs" />
     <Compile Include="TestBase.cs" />
