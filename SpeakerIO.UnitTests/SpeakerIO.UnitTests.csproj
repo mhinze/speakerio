@@ -69,6 +69,7 @@
     <None Include="..\SpeakerIO.Web\appSettings.config">
       <Link>appSettings.config</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
