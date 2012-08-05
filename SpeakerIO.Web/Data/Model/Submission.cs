@@ -1,13 +1,14 @@
 using System.ComponentModel.DataAnnotations;
+using SpeakerIO.Web.Application.Email;
 using SpeakerIO.Web.Areas.Speaker.Models;
 
 namespace SpeakerIO.Web.Data.Model
 {
     public class Submission : DataEntity
     {
-        const string Submitted = "Submitted";
-        const string Rejected = "Rejected";
-        const string Accepted = "Accepted";
+        public const string Submitted = "Submitted";
+        public const string Rejected = "Rejected";
+        public const string Accepted = "Accepted";
 
         public Submission(User speaker, SubmissionViewModel input, CallForSpeakers callForSpeakers)
         {
@@ -37,10 +38,11 @@ namespace SpeakerIO.Web.Data.Model
 
         public string RejectionReason { get; set; }
 
-        public void Reject(string reason)
+        public void Reject(string reason, IDomainEmailSender email)
         {
             Status = Rejected;
             RejectionReason = reason;
+            email.SubmissionRejection(this);
         }
 
         public bool CanAccept()
@@ -53,9 +55,10 @@ namespace SpeakerIO.Web.Data.Model
             return Status == Submitted;
         }
 
-        public void Accept()
+        public void Accept(IDomainEmailSender email)
         {
             Status = Accepted;
+            email.SubmissionAcceptance(this);
         }
     }
 }

@@ -18,6 +18,10 @@
     <UseIISExpress>true</UseIISExpress>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -128,6 +132,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Email\DomainEmailSender.cs" />
+    <Compile Include="Application\Email\EmailMessage.cs" />
+    <Compile Include="Application\Email\EmailService.cs" />
+    <Compile Include="Application\Email\IDomainEmailSender.cs" />
+    <Compile Include="Application\Email\IEmailService.cs" />
     <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="Areas\Organizer\Models\RejectionInput.cs" />
@@ -308,6 +317,9 @@
     <Content Include="Areas\Speaker\Views\Submission\Create.cshtml" />
     <Content Include="Areas\Speaker\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Organizer\Views\Submissions\Review.cshtml" />
+    <Content Include="appSettings.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Pbar.cshtml" />
