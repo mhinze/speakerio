@@ -17,4 +17,7 @@
   To proxy outbound http requests, enter the proxy URL here
   ************************* -->
   <add key="outboundHttpProxy" value="" />
+  
+  <add key="MAILGUN_API_KEY" value=""/>
+  <add key="MAILGUN_DOMAIN" value=""/>
 </appSettings>

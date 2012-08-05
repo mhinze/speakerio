@@ -24,5 +24,15 @@ namespace SpeakerIO.Web.Application
         {
             return ConfigurationManager.AppSettings["outboundHttpProxy"];
         }
+
+        public string MailgunDomain()
+        {
+            return ConfigurationManager.AppSettings["MAILGUN_API_KEY"];
+        }
+
+        public string MailgunApiKey()
+        {
+            return ConfigurationManager.AppSettings["MAILGUN_DOMAIN"];
+        }
     }
 }

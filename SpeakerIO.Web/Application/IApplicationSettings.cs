@@ -6,5 +6,7 @@
         string JanrainAppName();
         bool ShouldProxyOutboundHttpRequests();
         string OutboundHttpProxy();
+        string MailgunDomain();
+        string MailgunApiKey();
     }
 }
