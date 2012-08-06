@@ -1,0 +1,44 @@
+﻿@using SpeakerIO.Web.Application.Extensions
+@model SpeakerIO.Web.Data.Model.Submission[]
+
+@{
+    ViewBag.Title = "My Submissions";
+}
+
+<h2>My Submissions</h2>
+
+@if (Model == null || !Model.Any())
+{
+    <p>No submissions</p>
+}
+else
+{
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        @foreach (var submission in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(submission.Title, "Submission", new {id = submission.Id})
+                </td>
+                <td>
+                    @submission.CallForSpeakers.EventName
+                </td>
+                <td>
+                    @submission.CallForSpeakers.FirstDayOfEvent.ToDate() - @submission.CallForSpeakers.LastDayOfEvent.ToDate()
+                </td>
+                <td>
+                    @submission.Status
+                </td>
+            </tr>
+        }
+    </table>
+}

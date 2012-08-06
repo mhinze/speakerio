@@ -1,0 +1,22 @@
+﻿@using SpeakerIO.Web.Application.Extensions
+@model SpeakerIO.Web.Data.Model.Submission
+
+<h2>Submission Details</h2>
+
+<div class="row">
+    <div class="span4">
+        <p><strong>@Model.CallForSpeakers.EventName</strong></p>
+        <p>@Model.CallForSpeakers.FirstDayOfEvent.ToDate() - @Model.CallForSpeakers.LastDayOfEvent.ToDate()</p>
+        <p>@Model.CallForSpeakers.Description</p>
+    </div>
+    <div class="span4">
+        <p><strong>@Model.Title</strong></p>
+        <p><strong>@Model.Status</strong>
+            @if (Model.RejectionReason != null)
+            {
+                <text>:</text> @Model.RejectionReason
+            }
+        </p>
+        <p>@Model.Abstract</p>
+    </div>
+</div>
