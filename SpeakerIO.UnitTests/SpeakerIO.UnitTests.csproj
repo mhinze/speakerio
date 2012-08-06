@@ -71,6 +71,7 @@
   <ItemGroup>
     <None Include="..\SpeakerIO.Web\appSettings.config">
       <Link>appSettings.config</Link>
+      <SubType>Designer</SubType>
     </None>
     <None Include="App.config">
       <TransformOnBuild>true</TransformOnBuild>
