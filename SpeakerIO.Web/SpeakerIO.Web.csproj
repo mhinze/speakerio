@@ -320,7 +320,6 @@
     <Content Include="Areas\Speaker\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Organizer\Views\Submissions\Review.cshtml" />
     <Content Include="Areas\Speaker\Views\MySubmissions\Index.cshtml" />
-    <Content Include="appSettings.config" />
     <Content Include="Areas\Speaker\Views\MySubmissions\Submission.cshtml" />
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
