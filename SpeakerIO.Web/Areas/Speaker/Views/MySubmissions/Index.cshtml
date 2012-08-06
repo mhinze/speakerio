@@ -27,7 +27,7 @@ else
         {
             <tr>
                 <td>
-                    @submission.Title
+                    @Html.ActionLink(submission.Title, "Submission", new {id = submission.Id})
                 </td>
                 <td>
                     @submission.CallForSpeakers.EventName
