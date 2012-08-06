@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerIO.Web", "SpeakerIO.Web\SpeakerIO.Web.csproj", "{0BC815BC-8E19-43BA-9B1A-EEF57BAD500B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerIO.UnitTests", "SpeakerIO.UnitTests\SpeakerIO.UnitTests.csproj", "{D1F8CD5C-CF1E-452F-968A-848B51879F05}"
@@ -16,6 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionScripts", "Solution
 	ProjectSection(SolutionItems) = preProject
 		SolutionScripts\appSettings.config.template = SolutionScripts\appSettings.config.template
 		SolutionScripts\Create-AppSettings.ps1 = SolutionScripts\Create-AppSettings.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{D9180DB9-ACD7-4B06-A5ED-1E1A1792E070}"
+	ProjectSection(SolutionItems) = preProject
+		SpeakerIO.Web\appSettings.config = SpeakerIO.Web\appSettings.config
 	EndProjectSection
 EndProject
 Global
