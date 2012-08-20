@@ -23,6 +23,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{D9180D
 		SpeakerIO.Web\appSettings.config = SpeakerIO.Web\appSettings.config
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B94A7B0F-2443-4517-8237-D04C7B0A738B}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		Build\Build.proj = Build\Build.proj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

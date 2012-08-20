@@ -17,6 +17,9 @@ namespace SpeakerIO.Web
             BootstrapBundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ModelBinders.Binders.Add(typeof (User), new UserModelBinder());
+BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
+
+
         }
     }
 }
