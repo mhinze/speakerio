@@ -26,7 +26,7 @@ namespace SpeakerIO.UnitTests.Application.Email
 
             var callForSpeakers = new CallForSpeakers
             {
-                User = organizer,
+                Organizer = organizer,
                 EventName = "event"
             };
 

@@ -13,7 +13,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
         {
             using (var db = new DataContext(user))
             {
-                var calls = db.CallsForSpeakers.AsNoTracking().Where(x => x.User.Id == user.Id);
+                var calls = db.CallsForSpeakers.AsNoTracking().Where(x => x.Organizer.Id == user.Id);
 
                 var model = new HomeViewModel(calls);
 

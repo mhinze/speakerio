@@ -18,7 +18,7 @@ namespace SpeakerIO.Web.Controllers
             _loginService = loginService;
         }
 
-        [HttpGet, AllowAnonymous,]
+        [HttpGet, AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             var model = _loginService.Build(returnUrl);

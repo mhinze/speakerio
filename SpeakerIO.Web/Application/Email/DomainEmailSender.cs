@@ -17,7 +17,7 @@ namespace SpeakerIO.Web.Application.Email
             {
                 To = new[] { submission.Speaker.Email },
                 Subject = "Your submission to " + submission.CallForSpeakers.EventName,
-                Cc = new[] { submission.CallForSpeakers.User.Email },
+                Cc = new[] { submission.CallForSpeakers.Organizer.Email },
                 Text = string.Format("Your submission \"{0}\" has been rejected by the organizer: {1}", submission.Title, submission.RejectionReason)
             };
 
@@ -30,7 +30,7 @@ namespace SpeakerIO.Web.Application.Email
             {
                 To = new[] { submission.Speaker.Email },
                 Subject = "Your submission to " + submission.CallForSpeakers.EventName,
-                Cc = new[] { submission.CallForSpeakers.User.Email },
+                Cc = new[] { submission.CallForSpeakers.Organizer.Email },
                 Text = string.Format("Congratulations! Your submission \"{0}\" has been accepted!", submission.Title)
             };
 

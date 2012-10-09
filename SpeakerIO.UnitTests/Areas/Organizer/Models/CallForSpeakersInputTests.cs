@@ -24,7 +24,7 @@ namespace SpeakerIO.UnitTests.Areas.Organizer.Models
                 LastDayToSubmit = new DateTime(2001,1,4),
                 LogoUrl = "logo url",
                 Slug = "asdasd",
-                User = user
+                Organizer = user
             };
 
             var input = new CallForSpeakersInput(entity);

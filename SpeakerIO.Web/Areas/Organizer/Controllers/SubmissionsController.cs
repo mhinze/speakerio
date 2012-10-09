@@ -31,8 +31,9 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
             using (var db = new DataContext(user))
             {
                 var submissions = db.Submissions.Include(x => x.CallForSpeakers)
+                    .Include(x => x.Speaker)
                     .Where(x => x.CallForSpeakers.Id == id &&
-                        x.CallForSpeakers.User.Id == user.Id);
+                        x.CallForSpeakers.Organizer.Id == user.Id);
 
                 if (!submissions.Any())
                 {
@@ -57,9 +58,10 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                 using (var db = new DataContext(user))
                 {
                     var submission = db.Submissions.Include(x => x.CallForSpeakers)
+                        .Include(x => x.Speaker)
                         .SingleOrDefault(x => x.Id == input.Id &&
                             x.CallForSpeakers.Id == input.CallForSpeakersId &&
-                            x.CallForSpeakers.User.Id == user.Id);
+                            x.CallForSpeakers.Organizer.Id == user.Id);
 
                     if (submission != null)
                     {
