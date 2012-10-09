@@ -58,6 +58,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                 using (var db = new DataContext(user))
                 {
                     var submission = db.Submissions.Include(x => x.CallForSpeakers)
+                        .Include(x => x.Speaker)
                         .SingleOrDefault(x => x.Id == input.Id &&
                             x.CallForSpeakers.Id == input.CallForSpeakersId &&
                             x.CallForSpeakers.Organizer.Id == user.Id);
