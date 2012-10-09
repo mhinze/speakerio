@@ -33,7 +33,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                 var submissions = db.Submissions.Include(x => x.CallForSpeakers)
                     .Include(x => x.Speaker)
                     .Where(x => x.CallForSpeakers.Id == id &&
-                        x.CallForSpeakers.User.Id == user.Id);
+                        x.CallForSpeakers.Organizer.Id == user.Id);
 
                 if (!submissions.Any())
                 {
@@ -60,7 +60,7 @@ namespace SpeakerIO.Web.Areas.Organizer.Controllers
                     var submission = db.Submissions.Include(x => x.CallForSpeakers)
                         .SingleOrDefault(x => x.Id == input.Id &&
                             x.CallForSpeakers.Id == input.CallForSpeakersId &&
-                            x.CallForSpeakers.User.Id == user.Id);
+                            x.CallForSpeakers.Organizer.Id == user.Id);
 
                     if (submission != null)
                     {

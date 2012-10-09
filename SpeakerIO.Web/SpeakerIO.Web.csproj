@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201208020224039_SubmissionStatus2.Designer.cs">
       <DependentUpon>201208020224039_SubmissionStatus2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201210091954139_RenameUserToOrganizer.cs" />
+    <Compile Include="Migrations\201210091954139_RenameUserToOrganizer.Designer.cs">
+      <DependentUpon>201210091954139_RenameUserToOrganizer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
@@ -335,6 +339,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201210091954139_RenameUserToOrganizer.resx">
+      <DependentUpon>201210091954139_RenameUserToOrganizer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

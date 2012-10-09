@@ -17,10 +17,10 @@ namespace SpeakerIO.Web.Data.Model
 
         public CallForSpeakers(CallForSpeakersInput input, User user) : this(input)
         {
-            User = user;
+            Organizer = user;
         }
 
-        public User User { get; set; }
+        public User Organizer { get; set; }
 
         public DateTime? LastDayToSubmit { get; set; }
 
