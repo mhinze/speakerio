@@ -8,10 +8,14 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
     {
         public SubmissionViewModel() {}
 
-        public SubmissionViewModel(CallForSpeakers callForSpeakers)
+        public SubmissionViewModel(User speaker, CallForSpeakers callForSpeakers)
         {
             CallForSpeakers = callForSpeakers;
             CallForSpeakersId = callForSpeakers.Id;
+
+            SpeakerName = speaker.Name;
+            SpeakerEmail = speaker.Email;
+            SpeakerTwitter = speaker.Twitter;
         }
 
         [HiddenInput(DisplayValue = false)]
@@ -24,6 +28,23 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
         [DataType(DataType.MultilineText)]
         public string Abstract { get; set; }
 
+        [Required]
+        [Display(Name = "Speaker Name")]
+        public string SpeakerName { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Speaker Bio")]
+        public string SpeakerBio { get; set; }
+
+        [Display(Name = "Speaker Email")]
+        public string SpeakerEmail { get; set; }
+
+        [Display(Name = "Speaker Twitter")]
+        public string SpeakerTwitter { get; set; }
+
+        [Display(Name = "Speaker Phone")]
+        public string SpeakerPhone { get; set; }
+        
         public CallForSpeakers CallForSpeakers { get; private set; }
     }
 }

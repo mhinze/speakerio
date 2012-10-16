@@ -11,9 +11,9 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
     public class SubmissionController : BaseController
     {
         [HttpGet]
-        public ActionResult Create(string slug)
+        public ActionResult Create(User user, string slug)
         {
-            using (var db = new DataContext())
+            using (var db = new DataContext(user))
             {
                 var found = db.CallsForSpeakers.SingleOrDefault(x => x.Slug == slug);
                 if (found == null)
@@ -21,7 +21,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
                     Error("Invalid call for speakers");
                     return RedirectToAction("Index", "Home");
                 }
-                return View(new SubmissionViewModel(found));
+                return View(new SubmissionViewModel(user, found));
             }
         }
 
