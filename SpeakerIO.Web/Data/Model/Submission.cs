@@ -38,6 +38,16 @@ namespace SpeakerIO.Web.Data.Model
 
         public string RejectionReason { get; set; }
 
+        public string SpeakerName { get; set; }
+
+        public string SpeakerBio { get; set; }
+
+        public string SpeakerTwitter { get; set; }
+
+        public string SpeakerEmail { get; set; }
+
+        public string SpeakerPhone { get; set; }
+
         public void Reject(string reason, IDomainEmailSender email)
         {
             Status = Rejected;

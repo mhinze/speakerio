@@ -197,6 +197,10 @@
     <Compile Include="Migrations\201210091954139_RenameUserToOrganizer.Designer.cs">
       <DependentUpon>201210091954139_RenameUserToOrganizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201210161939026_SpeakerInfoOnSubmission.cs" />
+    <Compile Include="Migrations\201210161939026_SpeakerInfoOnSubmission.Designer.cs">
+      <DependentUpon>201210161939026_SpeakerInfoOnSubmission.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
@@ -344,6 +348,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201210091954139_RenameUserToOrganizer.resx">
       <DependentUpon>201210091954139_RenameUserToOrganizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201210161939026_SpeakerInfoOnSubmission.resx">
+      <DependentUpon>201210161939026_SpeakerInfoOnSubmission.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

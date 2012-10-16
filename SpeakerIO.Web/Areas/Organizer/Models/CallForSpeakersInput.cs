@@ -52,8 +52,4 @@ namespace SpeakerIO.Web.Areas.Organizer.Models
         [HiddenInput(DisplayValue = false)]
         public long? Id { get; set; }
     }
-
-
-
- 
 }
