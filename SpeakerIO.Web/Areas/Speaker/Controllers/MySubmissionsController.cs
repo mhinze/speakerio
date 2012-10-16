@@ -15,7 +15,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
                 var all = db.Submissions
                     .Include("CallForSpeakers")
                     .AsNoTracking()
-                    .Where(x => x.Speaker.Id == speaker.Id)
+                    .Where(x => x.Submitter.Id == speaker.Id)
                     .OrderBy(x => x.CallForSpeakers.LastDayToSubmit)
                     .ThenBy(x => x.CallForSpeakers.EventName)
                     .ThenBy(x => x.Title)
@@ -29,7 +29,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Controllers
         {
             using (var db = new DataContext(speaker))
             {
-                var sub = db.Submissions.Include("CallForSpeakers").SingleOrDefault(x => x.Id == id && x.Speaker.Id == speaker.Id);
+                var sub = db.Submissions.Include("CallForSpeakers").SingleOrDefault(x => x.Id == id && x.Submitter.Id == speaker.Id);
                 if (sub == null)
                 {
                     Error("Invalid submission");

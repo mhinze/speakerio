@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201210161939026_SpeakerInfoOnSubmission.Designer.cs">
       <DependentUpon>201210161939026_SpeakerInfoOnSubmission.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201210161951237_RenameSpeakerToSubmitter.cs" />
+    <Compile Include="Migrations\201210161951237_RenameSpeakerToSubmitter.Designer.cs">
+      <DependentUpon>201210161951237_RenameSpeakerToSubmitter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
@@ -351,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201210161939026_SpeakerInfoOnSubmission.resx">
       <DependentUpon>201210161939026_SpeakerInfoOnSubmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201210161951237_RenameSpeakerToSubmitter.resx">
+      <DependentUpon>201210161951237_RenameSpeakerToSubmitter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

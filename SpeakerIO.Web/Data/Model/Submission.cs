@@ -10,19 +10,25 @@ namespace SpeakerIO.Web.Data.Model
         public const string Rejected = "Rejected";
         public const string Accepted = "Accepted";
 
-        public Submission(User speaker, SubmissionViewModel input, CallForSpeakers callForSpeakers)
+        public Submission(User submitter, SubmissionViewModel input, CallForSpeakers callForSpeakers)
         {
-            Speaker = speaker;
+            Submitter = submitter;
             CallForSpeakers = callForSpeakers;
             Title = input.Title;
             Abstract = input.Abstract;
             Status = Submitted;
+
+            SpeakerName = input.SpeakerName;
+            SpeakerBio = input.SpeakerBio;
+            SpeakerEmail = input.SpeakerEmail;
+            SpeakerPhone = input.SpeakerPhone;
+            SpeakerTwitter = input.SpeakerTwitter;
         }
 
         protected Submission() {}
 
         [Required]
-        public User Speaker { get; set; }
+        public User Submitter { get; set; }
 
         [Required]
         public CallForSpeakers CallForSpeakers { get; set; }
