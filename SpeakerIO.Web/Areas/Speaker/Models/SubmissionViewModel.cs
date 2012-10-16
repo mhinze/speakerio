@@ -16,6 +16,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
             SpeakerName = speaker.Name;
             SpeakerEmail = speaker.Email;
             SpeakerTwitter = speaker.Twitter;
+            SpeakerImageUrl = speaker.ImageUrl;
         }
 
         [HiddenInput(DisplayValue = false)]
@@ -44,7 +45,10 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
 
         [Display(Name = "Speaker Phone")]
         public string SpeakerPhone { get; set; }
-        
+
+        [Display(Name = "Speaker Image Url")]
+        public string SpeakerImageUrl { get; set; }
+
         public CallForSpeakers CallForSpeakers { get; private set; }
     }
 }

@@ -23,9 +23,10 @@ namespace SpeakerIO.Web.Data.Model
             SpeakerEmail = input.SpeakerEmail;
             SpeakerPhone = input.SpeakerPhone;
             SpeakerTwitter = input.SpeakerTwitter;
+            SpeakerImageUrl = input.SpeakerImageUrl;
         }
 
-        protected Submission() {}
+        protected Submission() { }
 
         [Required]
         public User Submitter { get; set; }
@@ -53,6 +54,8 @@ namespace SpeakerIO.Web.Data.Model
         public string SpeakerEmail { get; set; }
 
         public string SpeakerPhone { get; set; }
+
+        public string SpeakerImageUrl { get; set; }
 
         public void Reject(string reason, IDomainEmailSender email)
         {
