@@ -10,19 +10,26 @@ namespace SpeakerIO.Web.Data.Model
         public const string Rejected = "Rejected";
         public const string Accepted = "Accepted";
 
-        public Submission(User speaker, SubmissionViewModel input, CallForSpeakers callForSpeakers)
+        public Submission(User submitter, SubmissionViewModel input, CallForSpeakers callForSpeakers)
         {
-            Speaker = speaker;
+            Submitter = submitter;
             CallForSpeakers = callForSpeakers;
             Title = input.Title;
             Abstract = input.Abstract;
             Status = Submitted;
+
+            SpeakerName = input.SpeakerName;
+            SpeakerBio = input.SpeakerBio;
+            SpeakerEmail = input.SpeakerEmail;
+            SpeakerPhone = input.SpeakerPhone;
+            SpeakerTwitter = input.SpeakerTwitter;
+            SpeakerImageUrl = input.SpeakerImageUrl;
         }
 
-        protected Submission() {}
+        protected Submission() { }
 
         [Required]
-        public User Speaker { get; set; }
+        public User Submitter { get; set; }
 
         [Required]
         public CallForSpeakers CallForSpeakers { get; set; }
@@ -37,6 +44,18 @@ namespace SpeakerIO.Web.Data.Model
         public string Status { get; protected set; }
 
         public string RejectionReason { get; set; }
+
+        public string SpeakerName { get; set; }
+
+        public string SpeakerBio { get; set; }
+
+        public string SpeakerTwitter { get; set; }
+
+        public string SpeakerEmail { get; set; }
+
+        public string SpeakerPhone { get; set; }
+
+        public string SpeakerImageUrl { get; set; }
 
         public void Reject(string reason, IDomainEmailSender email)
         {

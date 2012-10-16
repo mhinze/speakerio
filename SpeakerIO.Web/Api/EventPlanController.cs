@@ -37,17 +37,19 @@ namespace SpeakerIO.Web.Api
                 result.LastDay = conf.LastDayOfEvent;
                 result.LastDayToSubmit = conf.LastDayToSubmit;
 
-                var acceptedSessions = db.Submissions.Include(x => x.Speaker)
+                var acceptedSessions = db.Submissions
                     .Where(s => s.CallForSpeakers.Id == id && s.Status == Submission.Accepted).ToArray();
 
                 result.AcceptedSubmissions = acceptedSessions.Select(x => new AcceptedSubmissions
                 {
                     Abstract = x.Abstract,
                     Title = x.Title,
-                    SpeakerEmail = x.Speaker.Email,
-                    SpeakerName = x.Speaker.Name,
-                    SpeakerPhotoUrl = x.Speaker.ImageUrl,
-                    SpeakerTwitter = x.Speaker.Twitter,
+                    SpeakerEmail = x.SpeakerEmail,
+                    SpeakerName = x.SpeakerName,
+                    SpeakerPhotoUrl = x.SpeakerImageUrl,
+                    SpeakerTwitter = x.SpeakerTwitter,
+                    SpeakerBio = x.SpeakerBio,
+                    SpeakerPhone = x.SpeakerPhone
                 });
             }
 
@@ -75,6 +77,8 @@ namespace SpeakerIO.Web.Api
         public string SpeakerEmail { get; set; }
         public string SpeakerPhotoUrl { get; set; }
         public string SpeakerTwitter { get; set; }
+        public string SpeakerBio { get; set; }
+        public string SpeakerPhone { get; set; }
 
         public string Title { get; set; }
         public string Abstract { get; set; }
