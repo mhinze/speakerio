@@ -1,7 +1,7 @@
 ﻿@using SpeakerIO.Web.Application
 @using SpeakerIO.Web.Application.Extensions
 @model SpeakerIO.Web.Areas.Organizer.Models.HomeViewModel
-@helper GetCountText()
+@helper GetCallForSpeakersCountText()
 {
     if (Model.CallForSpeakersCount == 0)
     {
@@ -16,6 +16,23 @@
         @:You have @Model.CallForSpeakersCount calls for speakers
     }
 }
+
+@helper GetSpeakerProfilesCountText()
+{
+    if (Model.SpeakerProfileCount == 0)
+    {
+        @:You aren't managing any speaker profiles
+    }
+    else if (Model.SpeakerProfileCount == 1)
+    {
+        @:You are managing 1 speaker profile
+    }
+    else
+    {
+        @:You are managing @Model.SpeakerProfileCount speaker profiles
+    }
+}
+
 @{
     ViewBag.Title = "Organizer Home";
 }
@@ -26,7 +43,7 @@
 </div>
 <div class="row">
     <div class="span5">
-        <h3>@GetCountText()</h3>
+        <h3>@GetCallForSpeakersCountText()</h3>
         <table class="table table-striped">
             @for (int index = 0; index < @Model.CallsForSpeakers.Length; index++)
             {
@@ -69,6 +86,27 @@
         <h3>@Html.ActionLink("Create a Call For Speakers", "Create", "CallForSpeakers", null, new { @class = "btn btn-primary" })</h3>
     </div>
 </div>
+
+ <div class="row">
+    <div class="span5">
+        <h3>@GetSpeakerProfilesCountText()</h3>
+        <table class="table table-striped">
+            @for (int index = 0; index < @Model.SpeakerProfiles.Length; index++)
+            {
+                var speakerProfile = @Model.SpeakerProfiles[index];
+                
+                <tr>
+                    <td><a href="@speakerProfile.HomePageUrl">@speakerProfile.Name</a></td>    
+                    <td><img src="@speakerProfile.ImageUrl"/></td>    
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="span4 well">
+        <h3>@Html.ActionLink("Create a Speaker Profile", "Create", "SpeakerProfile", new {area = "Speaker"}, new { @class = "btn btn-primary" })</h3>
+    </div>
+</div>
+
 @section head
 {
     <script type="text/javascript">

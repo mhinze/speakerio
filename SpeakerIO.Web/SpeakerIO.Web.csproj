@@ -147,6 +147,8 @@
     <Compile Include="Application\Email\IEmailService.cs" />
     <Compile Include="Application\Extensions\DateFormatExtensions.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
+    <Compile Include="Areas\Speaker\Models\CreateSpeakerProfileInput.cs" />
+    <Compile Include="Areas\Speaker\Controllers\SpeakerProfileController.cs" />
     <Compile Include="Areas\Organizer\Models\RejectionInput.cs" />
     <Compile Include="Areas\Organizer\Models\DecisionInput.cs" />
     <Compile Include="Areas\Organizer\Controllers\SubmissionsController.cs" />
@@ -156,6 +158,7 @@
     <Compile Include="Areas\Speaker\SpeakerAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\Model\SpeakerProfile.cs" />
     <Compile Include="Data\Model\Submission.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.cs" />
     <Compile Include="Migrations\201207270431146_TwitterOnUser.Designer.cs">
@@ -208,6 +211,10 @@
     <Compile Include="Migrations\201210162012084_SpeakerImageUrl.cs" />
     <Compile Include="Migrations\201210162012084_SpeakerImageUrl.Designer.cs">
       <DependentUpon>201210162012084_SpeakerImageUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212031834054_InitialSpeakerProfile.cs" />
+    <Compile Include="Migrations\201212031834054_InitialSpeakerProfile.Designer.cs">
+      <DependentUpon>201212031834054_InitialSpeakerProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
@@ -344,6 +351,7 @@
     <Content Include="Areas\Organizer\Views\Submissions\Review.cshtml" />
     <Content Include="Areas\Speaker\Views\MySubmissions\Index.cshtml" />
     <Content Include="Areas\Speaker\Views\MySubmissions\Submission.cshtml" />
+    <Content Include="Areas\Speaker\Views\SpeakerProfile\Create.cshtml" />
     <None Include="CodeTemplates\AddView\CSHTML\BootstrapForm.tt" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Account\Pbar.cshtml" />
@@ -365,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201210162012084_SpeakerImageUrl.resx">
       <DependentUpon>201210162012084_SpeakerImageUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212031834054_InitialSpeakerProfile.resx">
+      <DependentUpon>201212031834054_InitialSpeakerProfile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
