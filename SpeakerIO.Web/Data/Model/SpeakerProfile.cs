@@ -26,6 +26,8 @@ namespace SpeakerIO.Web.Data.Model
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        public string Tag { get; set; }
+
         public string Twitter { get; set; }
 
         [DataType(DataType.PhoneNumber)]

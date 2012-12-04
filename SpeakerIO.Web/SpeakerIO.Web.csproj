@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201212031834054_InitialSpeakerProfile.Designer.cs">
       <DependentUpon>201212031834054_InitialSpeakerProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201212041436208_SpeakerProfile-Tag.cs" />
+    <Compile Include="Migrations\201212041436208_SpeakerProfile-Tag.Designer.cs">
+      <DependentUpon>201212041436208_SpeakerProfile-Tag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserDetailsInput.cs" />
     <Compile Include="UserModelBinder.cs" />
     <Reference Include="WebActivator">
@@ -376,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201212031834054_InitialSpeakerProfile.resx">
       <DependentUpon>201212031834054_InitialSpeakerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201212041436208_SpeakerProfile-Tag.resx">
+      <DependentUpon>201212041436208_SpeakerProfile-Tag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

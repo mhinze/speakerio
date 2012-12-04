@@ -16,7 +16,11 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
             ImageUrl = profile.ImageUrl;
             HomePageUrl = profile.HomePageUrl;
             Email = profile.Email;
+            Tag = profile.Tag;
         }
+
+        [Display(Name="Tag (for distinguising multiple profiles with the same name)")]
+        public string Tag { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -38,7 +42,7 @@ namespace SpeakerIO.Web.Areas.Speaker.Models
 
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
-        
+
         public string Twitter { get; set; }
     }
 }
